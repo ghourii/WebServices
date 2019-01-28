@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ADP_PC1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_adp">
+          <Key>
+            <PropertyRef Name="auto_ADP_id" />
+          </Key>
+          <Property Name="auto_ADP_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADP_name" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tbl_ADP_Serial">
+          <Key>
+            <PropertyRef Name="auto_adp_serial_id" />
+          </Key>
+          <Property Name="auto_adp_serial_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="auto_ADP_id" Type="int" />
+          <Property Name="serial_no_ADP" Type="nvarchar" MaxLength="100" />
+          <Property Name="Allocation" Type="float" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="4000" />
+          <Property Name="ProjectCode" Type="nvarchar" MaxLength="2550" />
+          <Property Name="yearly_total_allocation" Type="float" />
+          <Property Name="approved_schemes" Type="bit" />
+          <Property Name="auto_Sector_id" Type="int" />
+          <Property Name="auto_SubSector_ID" Type="int" />
+          <Property Name="auto_Dept_Id" Type="int" />
+          <Property Name="Div_ID" Type="int" />
+          <Property Name="Distt_ID" Type="int" />
+          <Property Name="ProjectCode_revenue" Type="nvarchar" MaxLength="255" />
+          <Property Name="local_Capital" Type="float" />
+          <Property Name="local_Rev" Type="float" />
+          <Property Name="FAid_Cap" Type="float" />
+          <Property Name="FAid_Rev" Type="float" />
+          <Property Name="Total_Cap" Type="float" />
+          <Property Name="Total_Rev" Type="float" />
+          <Property Name="Scheme_Status" Type="nvarchar" MaxLength="255" />
+          <Property Name="old_Gsno" Type="nvarchar" MaxLength="255" />
+          <Property Name="mneBit" Type="bit" />
+          <Property Name="Prov_id" Type="int" />
+          <Property Name="Tehsil_id" Type="int" />
+          <Property Name="est_cost" Type="float" />
+          <Property Name="expenditure_cost" Type="float" />
+          <Property Name="SchemeCode" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tbl_AdpBook_multipleDist">
+          <Key>
+            <PropertyRef Name="auto_adp_Multiple_dist_id" />
+          </Key>
+          <Property Name="auto_adp_Multiple_dist_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="auto_adp_serial_id" Type="int" />
+          <Property Name="Distt_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Department">
+          <Key>
+            <PropertyRef Name="auto_Dept_Id" />
+          </Key>
+          <Property Name="auto_Dept_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeptFulName" Type="nvarchar" MaxLength="250" />
+          <Property Name="DeptCode" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tbl_Distt">
+          <Key>
+            <PropertyRef Name="Distt_ID" />
+          </Key>
+          <Property Name="Distt_ID" Type="int" Nullable="false" />
+          <Property Name="Dist_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Div_ID" Type="int" />
+          <Property Name="dis_extent" Type="nvarchar" MaxLength="255" />
+          <Property Name="geom" Type="geometry" />
+          <Property Name="geom_" Type="geography" />
+          <Property Name="Dist_Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Division">
+          <Key>
+            <PropertyRef Name="Div_ID" />
+          </Key>
+          <Property Name="Div_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Div_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="div_extent" Type="nvarchar" MaxLength="255" />
+          <Property Name="centroid" Type="nvarchar" MaxLength="255" />
+          <Property Name="Div_Code" Type="nvarchar" MaxLength="200" />
+          <Property Name="geom" Type="geometry" />
+        </EntityType>
+        <EntityType Name="tbl_Executing_Agency">
+          <Key>
+            <PropertyRef Name="Executing_Agency_ID" />
+          </Key>
+          <Property Name="Executing_Agency_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Executing_Agency_Name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_mne_master">
+          <Key>
+            <PropertyRef Name="auto_id_mne_master" />
+          </Key>
+          <Property Name="auto_id_mne_master" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="auto_Pc1_id" Type="int" />
+          <Property Name="EV_Date_Of_Evaluation" Type="datetime" />
+          <Property Name="EV_Firm_Name_Evaluating" Type="nvarchar(max)" />
+          <Property Name="EV_EvaluationReport_Attachment" Type="nvarchar(max)" />
+          <Property Name="EV_Completion_Date" Type="datetime" />
+          <Property Name="EV_PCIV_Submission_Date" Type="datetime" />
+          <Property Name="EV_PCIV_Attachment" Type="nvarchar(max)" />
+          <Property Name="EV_PostProjectEvaluation_date" Type="datetime" />
+          <Property Name="EV_Firm_Name" Type="nvarchar(max)" />
+          <Property Name="EV_PostProjectEvaluation_Report_Attachment" Type="nvarchar(max)" />
+          <Property Name="Ev_QulaityOfWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apr_SubmissionDate" Type="datetime" />
+          <Property Name="Apr_PrePDWP_MeetingDate" Type="datetime" />
+          <Property Name="Apr_PDWP_meetingDate" Type="datetime" />
+          <Property Name="Apr_PDWP_Attachment" Type="nvarchar(max)" />
+          <Property Name="Apr_ClearanceLetterDate_Pndd" Type="datetime" />
+          <Property Name="Apr_ClearanceLetter_Attachment" Type="nvarchar(max)" />
+          <Property Name="Apr_Admn_Approval_Date" Type="datetime" />
+          <Property Name="Apr_AA_Attachment" Type="nvarchar(max)" />
+          <Property Name="Apr_TechnicalSanctioned_Date" Type="datetime" />
+          <Property Name="Apr_TS_Amount" Type="float" />
+          <Property Name="Apr_TS_Attachemnt" Type="nvarchar(max)" />
+          <Property Name="Apr_FundAllocationDate_Pndd" Type="datetime" />
+          <Property Name="Apr_FundAllocationAmount_Pndd" Type="float" />
+          <Property Name="Apr_FundAllocation_Pndd_Attachment" Type="nvarchar(max)" />
+          <Property Name="Apr_Fd_ReleaseDate" Type="datetime" />
+          <Property Name="Apr_Fd_ReleaseAmount" Type="float" />
+          <Property Name="Apr_Fd_Attacment" Type="nvarchar(max)" />
+          <Property Name="Apr_AdpAllocationDate" Type="datetime" />
+          <Property Name="Apr_AdpAllocationAmount" Type="float" />
+          <Property Name="Apr_PC1_AmountProposed" Type="float" />
+          <Property Name="Apr_PC1_AmountApproved" Type="float" />
+          <Property Name="Apr_AuditCopyDate" Type="datetime" />
+          <Property Name="Apr_TS_AmountEstimated" Type="float" />
+          <Property Name="Apr_ADP_InformationPaper_Attachment" Type="nvarchar(max)" />
+          <Property Name="Apr_PrePDWP_MOM_Attachment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_PC1">
+          <Key>
+            <PropertyRef Name="auto_pc1_id" />
+          </Key>
+          <Property Name="auto_pc1_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pc1_code" Type="nvarchar" MaxLength="250" />
+          <Property Name="pc1_prj_name" Type="nvarchar" MaxLength="500" />
+          <Property Name="auto_pc1_project_type" Type="int" />
+          <Property Name="auto_pc_type_id" Type="int" />
+          <Property Name="plan_start_date" Type="datetime" />
+          <Property Name="plan_end_date" Type="datetime" />
+          <Property Name="total_cost" Type="float" />
+          <Property Name="is_plan_for_allPujab" Type="bit" />
+          <Property Name="plan_complete_address" Type="nvarchar(max)" />
+          <Property Name="auto_SponsorID" Type="int" />
+          <Property Name="isMTDF" Type="bit" />
+          <Property Name="isADP" Type="bit" />
+          <Property Name="Prj_incld_5_yr_specify" Type="nvarchar" MaxLength="500" />
+          <Property Name="isBlockAllocation" Type="bit" />
+          <Property Name="Prj_objective" Type="nvarchar(max)" />
+          <Property Name="Prj_Justification" Type="nvarchar(max)" />
+          <Property Name="DemandSupplyAnalysis" Type="nvarchar(max)" />
+          <Property Name="FinancialBenefit" Type="nvarchar(max)" />
+          <Property Name="EconomicBenefit" Type="nvarchar(max)" />
+          <Property Name="Socialbenefit" Type="nvarchar(max)" />
+          <Property Name="EmploymentGeneration" Type="nvarchar(max)" />
+          <Property Name="EnvoirnmentImpact" Type="nvarchar(max)" />
+          <Property Name="DelayImapact" Type="nvarchar(max)" />
+          <Property Name="DecisionBenefit" Type="nvarchar(max)" />
+          <Property Name="Certification" Type="nvarchar(max)" />
+          <Property Name="Guestation_Period" Type="int" />
+          <Property Name="isReturnedBack" Type="bit" />
+          <Property Name="isCompleted" Type="bit" />
+          <Property Name="auto_forum_id" Type="int" />
+          <Property Name="submitted_by_deptt" Type="int" />
+          <Property Name="auto_decision_id" Type="int" />
+          <Property Name="data_entry" Type="datetime" />
+          <Property Name="attachment" Type="nvarchar" MaxLength="200" />
+          <Property Name="duration" Type="float" />
+          <Property Name="StatusId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_PC1_ADP_serial">
+          <Key>
+            <PropertyRef Name="auto_pc1_id" />
+          </Key>
+          <Property Name="auto_PC1_ADP_serial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="auto_adp_serial_id" Type="int" />
+          <Property Name="auto_pc1_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Sectors">
+          <Key>
+            <PropertyRef Name="auto_Sector_id" />
+          </Key>
+          <Property Name="auto_Sector_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectorName" Type="nvarchar" MaxLength="250" />
+          <Property Name="sector_code" Type="nvarchar" MaxLength="250" />
+          <Property Name="sector_order" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Sponsoring_Agency">
+          <Key>
+            <PropertyRef Name="auto_SponsorID" />
+          </Key>
+          <Property Name="auto_SponsorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SponsoringAgencyName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_SubSectors">
+          <Key>
+            <PropertyRef Name="auto_SubSector_ID" />
+          </Key>
+          <Property Name="auto_SubSector_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubSectorName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="auto_Sector_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_tehsil">
+          <Key>
+            <PropertyRef Name="Tehsil_ID" />
+          </Key>
+          <Property Name="Tehsil_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tehsil_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Distt_ID" Type="int" />
+        </EntityType>
+        <Association Name="FK_tbl_mne_master_tbl_PC1_ADP_serial">
+          <End Role="tbl_PC1_ADP_serial" Type="Self.tbl_PC1_ADP_serial" Multiplicity="0..1" />
+          <End Role="tbl_mne_master" Type="Self.tbl_mne_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_PC1_ADP_serial">
+              <PropertyRef Name="auto_pc1_id" />
+            </Principal>
+            <Dependent Role="tbl_mne_master">
+              <PropertyRef Name="auto_Pc1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_PC1_ADP_serial_tbl_PC1">
+          <End Role="tbl_PC1" Type="Self.tbl_PC1" Multiplicity="1" />
+          <End Role="tbl_PC1_ADP_serial" Type="Self.tbl_PC1_ADP_serial" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_PC1">
+              <PropertyRef Name="auto_pc1_id" />
+            </Principal>
+            <Dependent Role="tbl_PC1_ADP_serial">
+              <PropertyRef Name="auto_pc1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Get_All_ADP_Years" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllAdps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Rest_Get_Adp_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serail" Type="nvarchar" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="sector" Type="int" Mode="In" />
+          <Parameter Name="subsector" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Rest_Get_Adp_Detail_ByProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="project" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Rest_Get_Adp_Detail_Year_Wise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="project" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ADP_PC1ModelStoreContainer">
+          <EntitySet Name="tbl_adp" EntityType="Self.tbl_adp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ADP_Serial" EntityType="Self.tbl_ADP_Serial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AdpBook_multipleDist" EntityType="Self.tbl_AdpBook_multipleDist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Distt" EntityType="Self.tbl_Distt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Division" EntityType="Self.tbl_Division" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Executing_Agency" EntityType="Self.tbl_Executing_Agency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_mne_master" EntityType="Self.tbl_mne_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PC1" EntityType="Self.tbl_PC1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PC1_ADP_serial" EntityType="Self.tbl_PC1_ADP_serial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Sectors" EntityType="Self.tbl_Sectors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Sponsoring_Agency" EntityType="Self.tbl_Sponsoring_Agency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SubSectors" EntityType="Self.tbl_SubSectors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_tehsil" EntityType="Self.tbl_tehsil" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_mne_master_tbl_PC1_ADP_serial" Association="Self.FK_tbl_mne_master_tbl_PC1_ADP_serial">
+            <End Role="tbl_PC1_ADP_serial" EntitySet="tbl_PC1_ADP_serial" />
+            <End Role="tbl_mne_master" EntitySet="tbl_mne_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_PC1_ADP_serial_tbl_PC1" Association="Self.FK_tbl_PC1_ADP_serial_tbl_PC1">
+            <End Role="tbl_PC1" EntitySet="tbl_PC1" />
+            <End Role="tbl_PC1_ADP_serial" EntitySet="tbl_PC1_ADP_serial" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ADP_PC1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_adp">
+          <Key>
+            <PropertyRef Name="auto_ADP_id" />
+          </Key>
+          <Property Name="auto_ADP_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADP_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_mne_master">
+          <Key>
+            <PropertyRef Name="auto_id_mne_master" />
+          </Key>
+          <Property Name="auto_id_mne_master" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="auto_Pc1_id" Type="Int32" />
+          <Property Name="EV_Date_Of_Evaluation" Type="DateTime" Precision="3" />
+          <Property Name="EV_Firm_Name_Evaluating" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EV_EvaluationReport_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EV_Completion_Date" Type="DateTime" Precision="3" />
+          <Property Name="EV_PCIV_Submission_Date" Type="DateTime" Precision="3" />
+          <Property Name="EV_PCIV_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EV_PostProjectEvaluation_date" Type="DateTime" Precision="3" />
+          <Property Name="EV_Firm_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EV_PostProjectEvaluation_Report_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ev_QulaityOfWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_SubmissionDate" Type="DateTime" Precision="3" />
+          <Property Name="Apr_PrePDWP_MeetingDate" Type="DateTime" Precision="3" />
+          <Property Name="Apr_PDWP_meetingDate" Type="DateTime" Precision="3" />
+          <Property Name="Apr_PDWP_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_ClearanceLetterDate_Pndd" Type="DateTime" Precision="3" />
+          <Property Name="Apr_ClearanceLetter_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_Admn_Approval_Date" Type="DateTime" Precision="3" />
+          <Property Name="Apr_AA_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_TechnicalSanctioned_Date" Type="DateTime" Precision="3" />
+          <Property Name="Apr_TS_Amount" Type="Double" />
+          <Property Name="Apr_TS_Attachemnt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_FundAllocationDate_Pndd" Type="DateTime" Precision="3" />
+          <Property Name="Apr_FundAllocationAmount_Pndd" Type="Double" />
+          <Property Name="Apr_FundAllocation_Pndd_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_Fd_ReleaseDate" Type="DateTime" Precision="3" />
+          <Property Name="Apr_Fd_ReleaseAmount" Type="Double" />
+          <Property Name="Apr_Fd_Attacment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_AdpAllocationDate" Type="DateTime" Precision="3" />
+          <Property Name="Apr_AdpAllocationAmount" Type="Double" />
+          <Property Name="Apr_PC1_AmountProposed" Type="Double" />
+          <Property Name="Apr_PC1_AmountApproved" Type="Double" />
+          <Property Name="Apr_AuditCopyDate" Type="DateTime" Precision="3" />
+          <Property Name="Apr_TS_AmountEstimated" Type="Double" />
+          <Property Name="Apr_ADP_InformationPaper_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apr_PrePDWP_MOM_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_PC1_ADP_serial" Relationship="Self.FK_tbl_mne_master_tbl_PC1_ADP_serial" FromRole="tbl_mne_master" ToRole="tbl_PC1_ADP_serial" />
+        </EntityType>
+        <EntityType Name="tbl_PC1">
+          <Key>
+            <PropertyRef Name="auto_pc1_id" />
+          </Key>
+          <Property Name="auto_pc1_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pc1_code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pc1_prj_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="auto_pc1_project_type" Type="Int32" />
+          <Property Name="auto_pc_type_id" Type="Int32" />
+          <Property Name="plan_start_date" Type="DateTime" Precision="3" />
+          <Property Name="plan_end_date" Type="DateTime" Precision="3" />
+          <Property Name="total_cost" Type="Double" />
+          <Property Name="is_plan_for_allPujab" Type="Boolean" />
+          <Property Name="plan_complete_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="auto_SponsorID" Type="Int32" />
+          <Property Name="isMTDF" Type="Boolean" />
+          <Property Name="isADP" Type="Boolean" />
+          <Property Name="Prj_incld_5_yr_specify" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="isBlockAllocation" Type="Boolean" />
+          <Property Name="Prj_objective" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Prj_Justification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DemandSupplyAnalysis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FinancialBenefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EconomicBenefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Socialbenefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmploymentGeneration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EnvoirnmentImpact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelayImapact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DecisionBenefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Certification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Guestation_Period" Type="Int32" />
+          <Property Name="isReturnedBack" Type="Boolean" />
+          <Property Name="isCompleted" Type="Boolean" />
+          <Property Name="auto_forum_id" Type="Int32" />
+          <Property Name="submitted_by_deptt" Type="Int32" />
+          <Property Name="auto_decision_id" Type="Int32" />
+          <Property Name="data_entry" Type="DateTime" Precision="3" />
+          <Property Name="attachment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="duration" Type="Double" />
+          <Property Name="StatusId" Type="Int32" />
+          <NavigationProperty Name="tbl_PC1_ADP_serial" Relationship="Self.FK_tbl_PC1_ADP_serial_tbl_PC1" FromRole="tbl_PC1" ToRole="tbl_PC1_ADP_serial" />
+        </EntityType>
+        <EntityType Name="tbl_PC1_ADP_serial">
+          <Key>
+            <PropertyRef Name="auto_pc1_id" />
+          </Key>
+          <Property Name="auto_PC1_ADP_serial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="auto_adp_serial_id" Type="Int32" />
+          <Property Name="auto_pc1_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_mne_master" Relationship="Self.FK_tbl_mne_master_tbl_PC1_ADP_serial" FromRole="tbl_PC1_ADP_serial" ToRole="tbl_mne_master" />
+          <NavigationProperty Name="tbl_PC1" Relationship="Self.FK_tbl_PC1_ADP_serial_tbl_PC1" FromRole="tbl_PC1_ADP_serial" ToRole="tbl_PC1" />
+        </EntityType>
+        <Association Name="FK_tbl_mne_master_tbl_PC1_ADP_serial">
+          <End Role="tbl_PC1_ADP_serial" Type="Self.tbl_PC1_ADP_serial" Multiplicity="0..1" />
+          <End Role="tbl_mne_master" Type="Self.tbl_mne_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_PC1_ADP_serial">
+              <PropertyRef Name="auto_pc1_id" />
+            </Principal>
+            <Dependent Role="tbl_mne_master">
+              <PropertyRef Name="auto_Pc1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_PC1_ADP_serial_tbl_PC1">
+          <End Role="tbl_PC1" Type="Self.tbl_PC1" Multiplicity="1" />
+          <End Role="tbl_PC1_ADP_serial" Type="Self.tbl_PC1_ADP_serial" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_PC1">
+              <PropertyRef Name="auto_pc1_id" />
+            </Principal>
+            <Dependent Role="tbl_PC1_ADP_serial">
+              <PropertyRef Name="auto_pc1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ADP_PC1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_adp" EntityType="Self.tbl_adp" />
+          <EntitySet Name="tbl_mne_master" EntityType="Self.tbl_mne_master" />
+          <EntitySet Name="tbl_PC1" EntityType="Self.tbl_PC1" />
+          <EntitySet Name="tbl_PC1_ADP_serial" EntityType="Self.tbl_PC1_ADP_serial" />
+          <AssociationSet Name="FK_tbl_mne_master_tbl_PC1_ADP_serial" Association="Self.FK_tbl_mne_master_tbl_PC1_ADP_serial">
+            <End Role="tbl_PC1_ADP_serial" EntitySet="tbl_PC1_ADP_serial" />
+            <End Role="tbl_mne_master" EntitySet="tbl_mne_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_PC1_ADP_serial_tbl_PC1" Association="Self.FK_tbl_PC1_ADP_serial_tbl_PC1">
+            <End Role="tbl_PC1" EntitySet="tbl_PC1" />
+            <End Role="tbl_PC1_ADP_serial" EntitySet="tbl_PC1_ADP_serial" />
+          </AssociationSet>
+          <EntitySet Name="tbl_Sectors" EntityType="ADP_PC1Model.tbl_Sectors" />
+          <EntitySet Name="tbl_AdpBook_multipleDist" EntityType="ADP_PC1Model.tbl_AdpBook_multipleDist" />
+          <EntitySet Name="tbl_Department" EntityType="ADP_PC1Model.tbl_Department" />
+          <EntitySet Name="tbl_SubSectors" EntityType="ADP_PC1Model.tbl_SubSectors" />
+          <EntitySet Name="tbl_Distt" EntityType="ADP_PC1Model.tbl_Distt" />
+          <EntitySet Name="tbl_Division" EntityType="ADP_PC1Model.tbl_Division" />
+          <FunctionImport Name="Rest_Get_Adp_Detail" ReturnType="Collection(ADP_PC1Model.Rest_Get_Adp_Detail_Result)">
+            <Parameter Name="serail" Mode="In" Type="String" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="sector" Mode="In" Type="Int32" />
+            <Parameter Name="subsector" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_Sponsoring_Agency" EntityType="ADP_PC1Model.tbl_Sponsoring_Agency" />
+          <EntitySet Name="tbl_Executing_Agency" EntityType="ADP_PC1Model.tbl_Executing_Agency" />
+          <FunctionImport Name="Get_All_ADP_Years" ReturnType="Collection(ADP_PC1Model.Get_All_ADP_Years_Result)" />
+          <EntitySet Name="tbl_tehsil" EntityType="ADP_PC1Model.tbl_tehsil" />
+          <FunctionImport Name="GetAllAdps" ReturnType="Collection(ADP_PC1Model.GetAllAdps_Result)" />
+          <EntitySet Name="tbl_ADP_Serial" EntityType="ADP_PC1Model.tbl_ADP_Serial" />
+          <FunctionImport Name="Rest_Get_Adp_Detail_ByProject" ReturnType="Collection(ADP_PC1Model.Rest_Get_Adp_Detail_ByProject_Result)">
+          <Parameter Name="project" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Rest_Get_Adp_Detail_Year_Wise" ReturnType="Collection(ADP_PC1Model.Rest_Get_Adp_Detail_Year_Wise_Result)">
+            <Parameter Name="project" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="tbl_Sectors">
+          <Key>
+            <PropertyRef Name="auto_Sector_id" />
+          </Key>
+          <Property Name="auto_Sector_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="sector_code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="sector_order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_AdpBook_multipleDist">
+          <Key>
+            <PropertyRef Name="auto_adp_Multiple_dist_id" />
+          </Key>
+          <Property Name="auto_adp_Multiple_dist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="auto_adp_serial_id" Type="Int32" />
+          <Property Name="Distt_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Department">
+          <Key>
+            <PropertyRef Name="auto_Dept_Id" />
+          </Key>
+          <Property Name="auto_Dept_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeptFulName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DeptCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_SubSectors">
+          <Key>
+            <PropertyRef Name="auto_SubSector_ID" />
+          </Key>
+          <Property Name="auto_SubSector_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubSectorName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="auto_Sector_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Distt">
+          <Key>
+            <PropertyRef Name="Distt_ID" />
+          </Key>
+          <Property Name="Distt_ID" Type="Int32" Nullable="false" />
+          <Property Name="Dist_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Div_ID" Type="Int32" />
+          <Property Name="dis_extent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="geom" Type="Geometry" />
+          <Property Name="geom_" Type="Geography" />
+          <Property Name="Dist_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Division">
+          <Key>
+            <PropertyRef Name="Div_ID" />
+          </Key>
+          <Property Name="Div_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Div_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="div_extent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="centroid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Div_Code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="geom" Type="Geometry" />
+        </EntityType>
+        <ComplexType Name="Rest_Get_Adp_Detail_Result">
+          <Property Type="Int32" Name="auto_adp_serial_id" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="true" />
+          <Property Type="Double" Name="Allocation" Nullable="true" />
+          <Property Type="Int32" Name="auto_Sector_id" Nullable="true" />
+          <Property Type="Int32" Name="auto_SubSector_ID" Nullable="true" />
+          <Property Type="Int32" Name="Distt_ID" Nullable="true" />
+          <Property Type="Int32" Name="Div_ID" Nullable="true" />
+          <Property Type="Int32" Name="auto_Dept_Id" Nullable="true" />
+          <Property Type="Int32" Name="Districts" Nullable="true" />
+          <Property Type="Double" Name="yearly_total_allocation" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_Sponsoring_Agency">
+          <Key>
+            <PropertyRef Name="auto_SponsorID" />
+          </Key>
+          <Property Name="auto_SponsorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SponsoringAgencyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Executing_Agency">
+          <Key>
+            <PropertyRef Name="Executing_Agency_ID" />
+          </Key>
+          <Property Name="Executing_Agency_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Executing_Agency_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Get_All_ADP_Years_Result">
+          <Property Type="Int32" Name="auto_ADP_id" Nullable="true" />
+          <Property Type="String" Name="ADP_name" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <EntityType Name="tbl_tehsil">
+          <Key>
+            <PropertyRef Name="Tehsil_ID" />
+          </Key>
+          <Property Name="Tehsil_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tehsil_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Distt_ID" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="GetAllAdps_Result">
+          <Property Type="String" Name="ProjectName" Nullable="true" />
+          <Property Type="String" Name="Allocation" Nullable="true" />
+          <Property Type="String" Name="YearlyTotalAllocation" Nullable="true" />
+          <Property Type="String" Name="Approved" Nullable="true" />
+          <Property Type="String" Name="Sector" Nullable="true" />
+          <Property Type="String" Name="SubSector" Nullable="true" />
+          <Property Type="String" Name="DepartmentName" Nullable="true" />
+          <Property Type="String" Name="Division" Nullable="true" />
+          <Property Type="String" Name="District" Nullable="true" />
+          <Property Type="String" Name="Tehsil" Nullable="true" />
+          <Property Type="String" Name="LocalCapital" Nullable="true" />
+          <Property Type="String" Name="LocalRevenue" Nullable="true" />
+          <Property Type="String" Name="TotalRevenue" Nullable="true" />
+          <Property Type="String" Name="EstimatedCost" Nullable="true" />
+          <Property Type="String" Name="ExpenditureCost" Nullable="true" />
+          <Property Type="String" Name="AdpSerial" Nullable="true" />
+          <Property Type="String" Name="FinancialYear" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_ADP_Serial">
+          <Key>
+            <PropertyRef Name="auto_adp_serial_id" />
+          </Key>
+          <Property Name="auto_adp_serial_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="auto_ADP_id" Type="Int32" />
+          <Property Name="serial_no_ADP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Allocation" Type="Double" />
+          <Property Name="ProjectName" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectCode" Type="String" MaxLength="2550" FixedLength="false" Unicode="true" />
+          <Property Name="yearly_total_allocation" Type="Double" />
+          <Property Name="approved_schemes" Type="Boolean" />
+          <Property Name="auto_Sector_id" Type="Int32" />
+          <Property Name="auto_SubSector_ID" Type="Int32" />
+          <Property Name="auto_Dept_Id" Type="Int32" />
+          <Property Name="Div_ID" Type="Int32" />
+          <Property Name="Distt_ID" Type="Int32" />
+          <Property Name="ProjectCode_revenue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="local_Capital" Type="Double" />
+          <Property Name="local_Rev" Type="Double" />
+          <Property Name="FAid_Cap" Type="Double" />
+          <Property Name="FAid_Rev" Type="Double" />
+          <Property Name="Total_Cap" Type="Double" />
+          <Property Name="Total_Rev" Type="Double" />
+          <Property Name="Scheme_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="old_Gsno" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="mneBit" Type="Boolean" />
+          <Property Name="Prov_id" Type="Int32" />
+          <Property Name="Tehsil_id" Type="Int32" />
+          <Property Name="est_cost" Type="Double" />
+          <Property Name="expenditure_cost" Type="Double" />
+          <Property Name="SchemeCode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Rest_Get_Adp_Detail_ByProject_Result">
+          <Property Type="Int32" Name="auto_adp_serial_id" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="4000" />
+          <Property Type="Double" Name="Allocation" Nullable="true" />
+          <Property Type="Int32" Name="auto_Sector_id" Nullable="true" />
+          <Property Type="String" Name="SectorName" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="auto_SubSector_ID" Nullable="true" />
+          <Property Type="String" Name="SubSectorName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Distt_ID" Nullable="true" />
+          <Property Type="String" Name="Dist_Name" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Div_ID" Nullable="true" />
+          <Property Type="String" Name="Div_Name" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="auto_Dept_Id" Nullable="true" />
+          <Property Type="String" Name="serial_no_ADP" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="yearly_total_allocation" Nullable="true" />
+          <Property Type="String" Name="DeptName" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Districts" Nullable="true" />
+          <Property Type="String" Name="SchemeCode" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="Rest_Get_Adp_Detail_Year_Wise_Result">
+          <Property Type="Int32" Name="Year" Nullable="true" />
+          <Property Type="Int32" Name="auto_adp_serial_id" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="4000" />
+          <Property Type="Double" Name="Allocation" Nullable="true" />
+          <Property Type="Int32" Name="auto_Sector_id" Nullable="true" />
+          <Property Type="String" Name="SectorName" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="auto_SubSector_ID" Nullable="true" />
+          <Property Type="String" Name="SubSectorName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Distt_ID" Nullable="true" />
+          <Property Type="String" Name="Dist_Name" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Div_ID" Nullable="true" />
+          <Property Type="String" Name="Div_Name" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="auto_Dept_Id" Nullable="true" />
+          <Property Type="String" Name="serial_no_ADP" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="yearly_total_allocation" Nullable="true" />
+          <Property Type="String" Name="DeptName" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Districts" Nullable="true" />
+          <Property Type="String" Name="SchemeCode" Nullable="true" MaxLength="250" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ADP_PC1ModelStoreContainer" CdmEntityContainer="ADP_PC1Entities">
+          <EntitySetMapping Name="tbl_adp">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_adp">
+              <MappingFragment StoreEntitySet="tbl_adp">
+                <ScalarProperty Name="auto_ADP_id" ColumnName="auto_ADP_id" />
+                <ScalarProperty Name="ADP_name" ColumnName="ADP_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_mne_master">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_mne_master">
+              <MappingFragment StoreEntitySet="tbl_mne_master">
+                <ScalarProperty Name="auto_id_mne_master" ColumnName="auto_id_mne_master" />
+                <ScalarProperty Name="auto_Pc1_id" ColumnName="auto_Pc1_id" />
+                <ScalarProperty Name="EV_Date_Of_Evaluation" ColumnName="EV_Date_Of_Evaluation" />
+                <ScalarProperty Name="EV_Firm_Name_Evaluating" ColumnName="EV_Firm_Name_Evaluating" />
+                <ScalarProperty Name="EV_EvaluationReport_Attachment" ColumnName="EV_EvaluationReport_Attachment" />
+                <ScalarProperty Name="EV_Completion_Date" ColumnName="EV_Completion_Date" />
+                <ScalarProperty Name="EV_PCIV_Submission_Date" ColumnName="EV_PCIV_Submission_Date" />
+                <ScalarProperty Name="EV_PCIV_Attachment" ColumnName="EV_PCIV_Attachment" />
+                <ScalarProperty Name="EV_PostProjectEvaluation_date" ColumnName="EV_PostProjectEvaluation_date" />
+                <ScalarProperty Name="EV_Firm_Name" ColumnName="EV_Firm_Name" />
+                <ScalarProperty Name="EV_PostProjectEvaluation_Report_Attachment" ColumnName="EV_PostProjectEvaluation_Report_Attachment" />
+                <ScalarProperty Name="Ev_QulaityOfWork" ColumnName="Ev_QulaityOfWork" />
+                <ScalarProperty Name="Apr_SubmissionDate" ColumnName="Apr_SubmissionDate" />
+                <ScalarProperty Name="Apr_PrePDWP_MeetingDate" ColumnName="Apr_PrePDWP_MeetingDate" />
+                <ScalarProperty Name="Apr_PDWP_meetingDate" ColumnName="Apr_PDWP_meetingDate" />
+                <ScalarProperty Name="Apr_PDWP_Attachment" ColumnName="Apr_PDWP_Attachment" />
+                <ScalarProperty Name="Apr_ClearanceLetterDate_Pndd" ColumnName="Apr_ClearanceLetterDate_Pndd" />
+                <ScalarProperty Name="Apr_ClearanceLetter_Attachment" ColumnName="Apr_ClearanceLetter_Attachment" />
+                <ScalarProperty Name="Apr_Admn_Approval_Date" ColumnName="Apr_Admn_Approval_Date" />
+                <ScalarProperty Name="Apr_AA_Attachment" ColumnName="Apr_AA_Attachment" />
+                <ScalarProperty Name="Apr_TechnicalSanctioned_Date" ColumnName="Apr_TechnicalSanctioned_Date" />
+                <ScalarProperty Name="Apr_TS_Amount" ColumnName="Apr_TS_Amount" />
+                <ScalarProperty Name="Apr_TS_Attachemnt" ColumnName="Apr_TS_Attachemnt" />
+                <ScalarProperty Name="Apr_FundAllocationDate_Pndd" ColumnName="Apr_FundAllocationDate_Pndd" />
+                <ScalarProperty Name="Apr_FundAllocationAmount_Pndd" ColumnName="Apr_FundAllocationAmount_Pndd" />
+                <ScalarProperty Name="Apr_FundAllocation_Pndd_Attachment" ColumnName="Apr_FundAllocation_Pndd_Attachment" />
+                <ScalarProperty Name="Apr_Fd_ReleaseDate" ColumnName="Apr_Fd_ReleaseDate" />
+                <ScalarProperty Name="Apr_Fd_ReleaseAmount" ColumnName="Apr_Fd_ReleaseAmount" />
+                <ScalarProperty Name="Apr_Fd_Attacment" ColumnName="Apr_Fd_Attacment" />
+                <ScalarProperty Name="Apr_AdpAllocationDate" ColumnName="Apr_AdpAllocationDate" />
+                <ScalarProperty Name="Apr_AdpAllocationAmount" ColumnName="Apr_AdpAllocationAmount" />
+                <ScalarProperty Name="Apr_PC1_AmountProposed" ColumnName="Apr_PC1_AmountProposed" />
+                <ScalarProperty Name="Apr_PC1_AmountApproved" ColumnName="Apr_PC1_AmountApproved" />
+                <ScalarProperty Name="Apr_AuditCopyDate" ColumnName="Apr_AuditCopyDate" />
+                <ScalarProperty Name="Apr_TS_AmountEstimated" ColumnName="Apr_TS_AmountEstimated" />
+                <ScalarProperty Name="Apr_ADP_InformationPaper_Attachment" ColumnName="Apr_ADP_InformationPaper_Attachment" />
+                <ScalarProperty Name="Apr_PrePDWP_MOM_Attachment" ColumnName="Apr_PrePDWP_MOM_Attachment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PC1">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_PC1">
+              <MappingFragment StoreEntitySet="tbl_PC1">
+                <ScalarProperty Name="auto_pc1_id" ColumnName="auto_pc1_id" />
+                <ScalarProperty Name="pc1_code" ColumnName="pc1_code" />
+                <ScalarProperty Name="pc1_prj_name" ColumnName="pc1_prj_name" />
+                <ScalarProperty Name="auto_pc1_project_type" ColumnName="auto_pc1_project_type" />
+                <ScalarProperty Name="auto_pc_type_id" ColumnName="auto_pc_type_id" />
+                <ScalarProperty Name="plan_start_date" ColumnName="plan_start_date" />
+                <ScalarProperty Name="plan_end_date" ColumnName="plan_end_date" />
+                <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+                <ScalarProperty Name="is_plan_for_allPujab" ColumnName="is_plan_for_allPujab" />
+                <ScalarProperty Name="plan_complete_address" ColumnName="plan_complete_address" />
+                <ScalarProperty Name="auto_SponsorID" ColumnName="auto_SponsorID" />
+                <ScalarProperty Name="isMTDF" ColumnName="isMTDF" />
+                <ScalarProperty Name="isADP" ColumnName="isADP" />
+                <ScalarProperty Name="Prj_incld_5_yr_specify" ColumnName="Prj_incld_5_yr_specify" />
+                <ScalarProperty Name="isBlockAllocation" ColumnName="isBlockAllocation" />
+                <ScalarProperty Name="Prj_objective" ColumnName="Prj_objective" />
+                <ScalarProperty Name="Prj_Justification" ColumnName="Prj_Justification" />
+                <ScalarProperty Name="DemandSupplyAnalysis" ColumnName="DemandSupplyAnalysis" />
+                <ScalarProperty Name="FinancialBenefit" ColumnName="FinancialBenefit" />
+                <ScalarProperty Name="EconomicBenefit" ColumnName="EconomicBenefit" />
+                <ScalarProperty Name="Socialbenefit" ColumnName="Socialbenefit" />
+                <ScalarProperty Name="EmploymentGeneration" ColumnName="EmploymentGeneration" />
+                <ScalarProperty Name="EnvoirnmentImpact" ColumnName="EnvoirnmentImpact" />
+                <ScalarProperty Name="DelayImapact" ColumnName="DelayImapact" />
+                <ScalarProperty Name="DecisionBenefit" ColumnName="DecisionBenefit" />
+                <ScalarProperty Name="Certification" ColumnName="Certification" />
+                <ScalarProperty Name="Guestation_Period" ColumnName="Guestation_Period" />
+                <ScalarProperty Name="isReturnedBack" ColumnName="isReturnedBack" />
+                <ScalarProperty Name="isCompleted" ColumnName="isCompleted" />
+                <ScalarProperty Name="auto_forum_id" ColumnName="auto_forum_id" />
+                <ScalarProperty Name="submitted_by_deptt" ColumnName="submitted_by_deptt" />
+                <ScalarProperty Name="auto_decision_id" ColumnName="auto_decision_id" />
+                <ScalarProperty Name="data_entry" ColumnName="data_entry" />
+                <ScalarProperty Name="attachment" ColumnName="attachment" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PC1_ADP_serial">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_PC1_ADP_serial">
+              <MappingFragment StoreEntitySet="tbl_PC1_ADP_serial">
+                <ScalarProperty Name="auto_PC1_ADP_serial" ColumnName="auto_PC1_ADP_serial" />
+                <ScalarProperty Name="auto_adp_serial_id" ColumnName="auto_adp_serial_id" />
+                <ScalarProperty Name="auto_pc1_id" ColumnName="auto_pc1_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Sectors">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_Sectors">
+              <MappingFragment StoreEntitySet="tbl_Sectors">
+                <ScalarProperty Name="sector_order" ColumnName="sector_order" />
+                <ScalarProperty Name="sector_code" ColumnName="sector_code" />
+                <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+                <ScalarProperty Name="auto_Sector_id" ColumnName="auto_Sector_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AdpBook_multipleDist">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_AdpBook_multipleDist">
+              <MappingFragment StoreEntitySet="tbl_AdpBook_multipleDist">
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="auto_adp_serial_id" ColumnName="auto_adp_serial_id" />
+                <ScalarProperty Name="auto_adp_Multiple_dist_id" ColumnName="auto_adp_Multiple_dist_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Department">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_Department">
+              <MappingFragment StoreEntitySet="tbl_Department">
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="DeptFulName" ColumnName="DeptFulName" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="auto_Dept_Id" ColumnName="auto_Dept_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_SubSectors">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_SubSectors">
+              <MappingFragment StoreEntitySet="tbl_SubSectors">
+                <ScalarProperty Name="auto_Sector_id" ColumnName="auto_Sector_id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SubSectorName" ColumnName="SubSectorName" />
+                <ScalarProperty Name="auto_SubSector_ID" ColumnName="auto_SubSector_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Distt">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_Distt">
+              <MappingFragment StoreEntitySet="tbl_Distt">
+                <ScalarProperty Name="Dist_Code" ColumnName="Dist_Code" />
+                <ScalarProperty Name="geom_" ColumnName="geom_" />
+                <ScalarProperty Name="geom" ColumnName="geom" />
+                <ScalarProperty Name="dis_extent" ColumnName="dis_extent" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+                <ScalarProperty Name="Dist_Name" ColumnName="Dist_Name" />
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Division">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_Division">
+              <MappingFragment StoreEntitySet="tbl_Division">
+                <ScalarProperty Name="geom" ColumnName="geom" />
+                <ScalarProperty Name="Div_Code" ColumnName="Div_Code" />
+                <ScalarProperty Name="centroid" ColumnName="centroid" />
+                <ScalarProperty Name="div_extent" ColumnName="div_extent" />
+                <ScalarProperty Name="Div_Name" ColumnName="Div_Name" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Rest_Get_Adp_Detail" FunctionName="ADP_PC1Model.Store.Rest_Get_Adp_Detail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ADP_PC1Model.Rest_Get_Adp_Detail_Result">
+                <ScalarProperty Name="auto_adp_serial_id" ColumnName="auto_adp_serial_id" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Allocation" ColumnName="Allocation" />
+                <ScalarProperty Name="auto_Sector_id" ColumnName="auto_Sector_id" />
+                <ScalarProperty Name="auto_SubSector_ID" ColumnName="auto_SubSector_ID" />
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+                <ScalarProperty Name="auto_Dept_Id" ColumnName="auto_Dept_Id" />
+                <ScalarProperty Name="Districts" ColumnName="Districts" />
+                <ScalarProperty Name="yearly_total_allocation" ColumnName="yearly_total_allocation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_Sponsoring_Agency">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_Sponsoring_Agency">
+              <MappingFragment StoreEntitySet="tbl_Sponsoring_Agency">
+                <ScalarProperty Name="SponsoringAgencyName" ColumnName="SponsoringAgencyName" />
+                <ScalarProperty Name="auto_SponsorID" ColumnName="auto_SponsorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Executing_Agency">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_Executing_Agency">
+              <MappingFragment StoreEntitySet="tbl_Executing_Agency">
+                <ScalarProperty Name="Executing_Agency_Name" ColumnName="Executing_Agency_Name" />
+                <ScalarProperty Name="Executing_Agency_ID" ColumnName="Executing_Agency_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_All_ADP_Years" FunctionName="ADP_PC1Model.Store.Get_All_ADP_Years">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ADP_PC1Model.Get_All_ADP_Years_Result">
+                <ScalarProperty Name="auto_ADP_id" ColumnName="auto_ADP_id" />
+                <ScalarProperty Name="ADP_name" ColumnName="ADP_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_tehsil">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_tehsil">
+              <MappingFragment StoreEntitySet="tbl_tehsil">
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="Tehsil_Name" ColumnName="Tehsil_Name" />
+                <ScalarProperty Name="Tehsil_ID" ColumnName="Tehsil_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllAdps" FunctionName="ADP_PC1Model.Store.GetAllAdps">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ADP_PC1Model.GetAllAdps_Result">
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Allocation" ColumnName="Allocation" />
+                <ScalarProperty Name="YearlyTotalAllocation" ColumnName="YearlyTotalAllocation" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="SubSector" ColumnName="SubSector" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Tehsil" ColumnName="Tehsil" />
+                <ScalarProperty Name="LocalCapital" ColumnName="LocalCapital" />
+                <ScalarProperty Name="LocalRevenue" ColumnName="LocalRevenue" />
+                <ScalarProperty Name="TotalRevenue" ColumnName="TotalRevenue" />
+                <ScalarProperty Name="EstimatedCost" ColumnName="EstimatedCost" />
+                <ScalarProperty Name="ExpenditureCost" ColumnName="ExpenditureCost" />
+                <ScalarProperty Name="AdpSerial" ColumnName="AdpSerial" />
+                <ScalarProperty Name="FinancialYear" ColumnName="FinancialYear" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_ADP_Serial">
+            <EntityTypeMapping TypeName="ADP_PC1Model.tbl_ADP_Serial">
+              <MappingFragment StoreEntitySet="tbl_ADP_Serial">
+                <ScalarProperty Name="SchemeCode" ColumnName="SchemeCode" />
+                <ScalarProperty Name="expenditure_cost" ColumnName="expenditure_cost" />
+                <ScalarProperty Name="est_cost" ColumnName="est_cost" />
+                <ScalarProperty Name="Tehsil_id" ColumnName="Tehsil_id" />
+                <ScalarProperty Name="Prov_id" ColumnName="Prov_id" />
+                <ScalarProperty Name="mneBit" ColumnName="mneBit" />
+                <ScalarProperty Name="old_Gsno" ColumnName="old_Gsno" />
+                <ScalarProperty Name="Scheme_Status" ColumnName="Scheme_Status" />
+                <ScalarProperty Name="Total_Rev" ColumnName="Total_Rev" />
+                <ScalarProperty Name="Total_Cap" ColumnName="Total_Cap" />
+                <ScalarProperty Name="FAid_Rev" ColumnName="FAid_Rev" />
+                <ScalarProperty Name="FAid_Cap" ColumnName="FAid_Cap" />
+                <ScalarProperty Name="local_Rev" ColumnName="local_Rev" />
+                <ScalarProperty Name="local_Capital" ColumnName="local_Capital" />
+                <ScalarProperty Name="ProjectCode_revenue" ColumnName="ProjectCode_revenue" />
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+                <ScalarProperty Name="auto_Dept_Id" ColumnName="auto_Dept_Id" />
+                <ScalarProperty Name="auto_SubSector_ID" ColumnName="auto_SubSector_ID" />
+                <ScalarProperty Name="auto_Sector_id" ColumnName="auto_Sector_id" />
+                <ScalarProperty Name="approved_schemes" ColumnName="approved_schemes" />
+                <ScalarProperty Name="yearly_total_allocation" ColumnName="yearly_total_allocation" />
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Allocation" ColumnName="Allocation" />
+                <ScalarProperty Name="serial_no_ADP" ColumnName="serial_no_ADP" />
+                <ScalarProperty Name="auto_ADP_id" ColumnName="auto_ADP_id" />
+                <ScalarProperty Name="auto_adp_serial_id" ColumnName="auto_adp_serial_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Rest_Get_Adp_Detail_ByProject" FunctionName="ADP_PC1Model.Store.Rest_Get_Adp_Detail_ByProject">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ADP_PC1Model.Rest_Get_Adp_Detail_ByProject_Result">
+                <ScalarProperty Name="auto_adp_serial_id" ColumnName="auto_adp_serial_id" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Allocation" ColumnName="Allocation" />
+                <ScalarProperty Name="auto_Sector_id" ColumnName="auto_Sector_id" />
+                <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+                <ScalarProperty Name="auto_SubSector_ID" ColumnName="auto_SubSector_ID" />
+                <ScalarProperty Name="SubSectorName" ColumnName="SubSectorName" />
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="Dist_Name" ColumnName="Dist_Name" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+                <ScalarProperty Name="Div_Name" ColumnName="Div_Name" />
+                <ScalarProperty Name="auto_Dept_Id" ColumnName="auto_Dept_Id" />
+                <ScalarProperty Name="serial_no_ADP" ColumnName="serial_no_ADP" />
+                <ScalarProperty Name="yearly_total_allocation" ColumnName="yearly_total_allocation" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="Districts" ColumnName="Districts" />
+                <ScalarProperty Name="SchemeCode" ColumnName="SchemeCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Rest_Get_Adp_Detail_Year_Wise" FunctionName="ADP_PC1Model.Store.Rest_Get_Adp_Detail_Year_Wise">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ADP_PC1Model.Rest_Get_Adp_Detail_Year_Wise_Result">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="auto_adp_serial_id" ColumnName="auto_adp_serial_id" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Allocation" ColumnName="Allocation" />
+                <ScalarProperty Name="auto_Sector_id" ColumnName="auto_Sector_id" />
+                <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+                <ScalarProperty Name="auto_SubSector_ID" ColumnName="auto_SubSector_ID" />
+                <ScalarProperty Name="SubSectorName" ColumnName="SubSectorName" />
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="Dist_Name" ColumnName="Dist_Name" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+                <ScalarProperty Name="Div_Name" ColumnName="Div_Name" />
+                <ScalarProperty Name="auto_Dept_Id" ColumnName="auto_Dept_Id" />
+                <ScalarProperty Name="serial_no_ADP" ColumnName="serial_no_ADP" />
+                <ScalarProperty Name="yearly_total_allocation" ColumnName="yearly_total_allocation" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="Districts" ColumnName="Districts" />
+                <ScalarProperty Name="SchemeCode" ColumnName="SchemeCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

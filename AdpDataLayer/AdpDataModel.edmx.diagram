@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7a984f8b16fa470b92b0f8892443896c" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_adp" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_mne_master" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_PC1" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_PC1_ADP_serial" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="ADP_PC1Model.FK_tbl_mne_master_tbl_PC1_ADP_serial" ManuallyRouted="false" />
+        <AssociationConnector Association="ADP_PC1Model.FK_tbl_PC1_ADP_serial_tbl_PC1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_Sectors" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_AdpBook_multipleDist" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_Department" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_SubSectors" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_Distt" Width="1.5" PointX="3.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_Division" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_Sponsoring_Agency" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_Executing_Agency" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_tehsil" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ADP_PC1Model.tbl_ADP_Serial" Width="1.5" PointX="7.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

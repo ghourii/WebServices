@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PDWP_WorkingPaper_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agendas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" />
+          <Property Name="FinancialYearId" Type="int" />
+          <Property Name="AgendaNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="FinancialYearName" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="AspNetUserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="Attachment" Type="nvarchar(max)" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="StartTime" Type="varchar" MaxLength="50" />
+          <Property Name="EndTime" Type="varchar" MaxLength="50" />
+          <Property Name="ProvinceId" Type="int" />
+          <Property Name="VenueId" Type="int" />
+          <Property Name="MeetingPlace" Type="nvarchar(max)" />
+          <Property Name="FileName" Type="nvarchar(max)" />
+          <Property Name="IsPublic" Type="bit" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SchemeAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="AttachmentTypeId" Type="int" />
+          <Property Name="WorkingPaperId" Type="int" />
+          <Property Name="AgendaId" Type="int" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="ContentType" Type="nvarchar(max)" />
+          <Property Name="FileName" Type="nvarchar(max)" />
+          <Property Name="LiveMonitoringDash" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="IsPublic" Type="bit" />
+        </EntityType>
+        <Association Name="FK_SchemeAttachment_Agendas">
+          <End Role="Agendas" Type="Self.Agendas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SchemeAttachment" Type="Self.SchemeAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agendas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SchemeAttachment">
+              <PropertyRef Name="AgendaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Iris_Get_Agenda_WorkingPapers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="agenda_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Iris_Get_Agendas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="province_id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="PDWP_WorkingPaper_DBModelStoreContainer">
+          <EntitySet Name="Agendas" EntityType="Self.Agendas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchemeAttachment" EntityType="Self.SchemeAttachment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SchemeAttachment_Agendas" Association="Self.FK_SchemeAttachment_Agendas">
+            <End Role="Agendas" EntitySet="Agendas" />
+            <End Role="SchemeAttachment" EntitySet="SchemeAttachment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PDWP_WorkingPaper_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PDWP_WorkingPaper_DBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="Iris_Get_Agendas" ReturnType="Collection(PDWP_WorkingPaper_DBModel.Iris_Get_Agendas_Result)">
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="province_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Iris_Get_Agenda_WorkingPapers" ReturnType="Collection(PDWP_WorkingPaper_DBModel.Iris_Get_Agenda_WorkingPapers_Result)">
+          <Parameter Name="agenda_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Agendas" EntityType="PDWP_WorkingPaper_DBModel.Agenda" />
+          <EntitySet Name="SchemeAttachments" EntityType="PDWP_WorkingPaper_DBModel.SchemeAttachment" />
+          <AssociationSet Name="FK_SchemeAttachment_Agendas" Association="PDWP_WorkingPaper_DBModel.FK_SchemeAttachment_Agendas">
+            <End Role="Agenda" EntitySet="Agendas" />
+            <End Role="SchemeAttachment" EntitySet="SchemeAttachments" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="Iris_Get_Agendas_Result">
+          <Property Type="Int32" Name="AgendaId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" />
+          <Property Type="String" Name="AgendaNumber" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="Int32" Name="FinancialYearId" Nullable="true" />
+          <Property Type="String" Name="FinancialYearName" Nullable="true" />
+          <Property Type="String" Name="AgendaAttachment" Nullable="true" />
+          <Property Type="String" Name="AgendaAttachmentPath" Nullable="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="MeetingStatus" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="AttachmentStatus" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <ComplexType Name="Iris_Get_Agenda_WorkingPapers_Result">
+          <Property Type="Int32" Name="WorkingPaperId" Nullable="false" />
+          <Property Type="String" Name="WorkingPaperTitle" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="EstimatedCost" Nullable="true" />
+          <Property Type="Double" Name="AdpAllocation" Nullable="true" />
+          <Property Type="String" Name="AdpSerial" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="SectorName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="SubsectorName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="SponAgencyName" Nullable="true" />
+          <Property Type="String" Name="ExecAgencyName" Nullable="true" />
+          <Property Type="Double" Name="AdpCost" Nullable="true" />
+          <Property Type="Int32" Name="AttachmentTypeId" Nullable="true" />
+          <Property Type="DateTime" Name="AttachmentDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Attachment" Nullable="true" />
+          <Property Type="String" Name="AttachmentName" Nullable="true" />
+          <Property Type="String" Name="AttachmentPath" Nullable="true" />
+          <Property Type="String" Name="LiveMonitoringDash" Nullable="true" />
+          <Property Type="String" Name="DistName" Nullable="true" />
+          <Property Type="String" Name="MeetingStatus" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AttachmentId" Nullable="true" />
+          <Property Type="String" Name="AttachmentStatus" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <EntityType Name="Agenda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="FinancialYearId" Type="Int32" />
+          <Property Name="AgendaNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FinancialYearName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="AspNetUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="Int32" />
+          <Property Name="VenueId" Type="Int32" />
+          <Property Name="MeetingPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsPublic" Type="Boolean" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SchemeAttachments" Relationship="PDWP_WorkingPaper_DBModel.FK_SchemeAttachment_Agendas" FromRole="Agenda" ToRole="SchemeAttachment" />
+        </EntityType>
+        <EntityType Name="SchemeAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="AttachmentTypeId" Type="Int32" />
+          <Property Name="WorkingPaperId" Type="Int32" />
+          <Property Name="AgendaId" Type="Int32" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LiveMonitoringDash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsPublic" Type="Boolean" />
+          <NavigationProperty Name="Agenda" Relationship="PDWP_WorkingPaper_DBModel.FK_SchemeAttachment_Agendas" FromRole="SchemeAttachment" ToRole="Agenda" />
+        </EntityType>
+        <Association Name="FK_SchemeAttachment_Agendas">
+          <End Type="PDWP_WorkingPaper_DBModel.Agenda" Role="Agenda" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PDWP_WorkingPaper_DBModel.SchemeAttachment" Role="SchemeAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agenda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SchemeAttachment">
+              <PropertyRef Name="AgendaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PDWP_WorkingPaper_DBModelStoreContainer" CdmEntityContainer="PDWP_WorkingPaper_DBEntities">
+          <FunctionImportMapping FunctionImportName="Iris_Get_Agendas" FunctionName="PDWP_WorkingPaper_DBModel.Store.Iris_Get_Agendas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PDWP_WorkingPaper_DBModel.Iris_Get_Agendas_Result">
+                <ScalarProperty Name="AgendaId" ColumnName="AgendaId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AgendaNumber" ColumnName="AgendaNumber" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="FinancialYearId" ColumnName="FinancialYearId" />
+                <ScalarProperty Name="FinancialYearName" ColumnName="FinancialYearName" />
+                <ScalarProperty Name="AgendaAttachment" ColumnName="AgendaAttachment" />
+                <ScalarProperty Name="AgendaAttachmentPath" ColumnName="AgendaAttachmentPath" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MeetingStatus" ColumnName="MeetingStatus" />
+                <ScalarProperty Name="AttachmentStatus" ColumnName="AttachmentStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Iris_Get_Agenda_WorkingPapers" FunctionName="PDWP_WorkingPaper_DBModel.Store.Iris_Get_Agenda_WorkingPapers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PDWP_WorkingPaper_DBModel.Iris_Get_Agenda_WorkingPapers_Result">
+                <ScalarProperty Name="WorkingPaperId" ColumnName="WorkingPaperId" />
+                <ScalarProperty Name="WorkingPaperTitle" ColumnName="WorkingPaperTitle" />
+                <ScalarProperty Name="EstimatedCost" ColumnName="EstimatedCost" />
+                <ScalarProperty Name="AdpAllocation" ColumnName="AdpAllocation" />
+                <ScalarProperty Name="AdpSerial" ColumnName="AdpSerial" />
+                <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+                <ScalarProperty Name="SubsectorName" ColumnName="SubsectorName" />
+                <ScalarProperty Name="SponAgencyName" ColumnName="SponAgencyName" />
+                <ScalarProperty Name="ExecAgencyName" ColumnName="ExecAgencyName" />
+                <ScalarProperty Name="AdpCost" ColumnName="AdpCost" />
+                <ScalarProperty Name="AttachmentTypeId" ColumnName="AttachmentTypeId" />
+                <ScalarProperty Name="AttachmentDate" ColumnName="AttachmentDate" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+                <ScalarProperty Name="AttachmentPath" ColumnName="AttachmentPath" />
+                <ScalarProperty Name="LiveMonitoringDash" ColumnName="LiveMonitoringDash" />
+                <ScalarProperty Name="DistName" ColumnName="DistName" />
+                <ScalarProperty Name="MeetingStatus" ColumnName="MeetingStatus" />
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="AttachmentStatus" ColumnName="AttachmentStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Agendas">
+            <EntityTypeMapping TypeName="PDWP_WorkingPaper_DBModel.Agenda">
+              <MappingFragment StoreEntitySet="Agendas">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+                <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="FinancialYearName" ColumnName="FinancialYearName" />
+                <ScalarProperty Name="AgendaNumber" ColumnName="AgendaNumber" />
+                <ScalarProperty Name="FinancialYearId" ColumnName="FinancialYearId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchemeAttachments">
+            <EntityTypeMapping TypeName="PDWP_WorkingPaper_DBModel.SchemeAttachment">
+              <MappingFragment StoreEntitySet="SchemeAttachment">
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LiveMonitoringDash" ColumnName="LiveMonitoringDash" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="AgendaId" ColumnName="AgendaId" />
+                <ScalarProperty Name="WorkingPaperId" ColumnName="WorkingPaperId" />
+                <ScalarProperty Name="AttachmentTypeId" ColumnName="AttachmentTypeId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

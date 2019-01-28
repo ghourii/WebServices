@@ -1,0 +1,1169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UC_SchemesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pm_Tbl_Main_Scheme">
+          <Key>
+            <PropertyRef Name="auto_Pm_Scheme_id" />
+          </Key>
+          <Property Name="auto_Pm_Scheme_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_Scheme" Type="nvarchar(max)" />
+          <Property Name="auto_Sector_id" Type="int" />
+          <Property Name="auto_subSector_id" Type="int" />
+          <Property Name="SDG_id" Type="int" />
+          <Property Name="Prov_id" Type="int" />
+          <Property Name="Div_ID" Type="int" />
+          <Property Name="Distt_ID" Type="int" />
+          <Property Name="auto_na_constituency_id" Type="int" />
+          <Property Name="auto_pp_constituency_id" Type="int" />
+          <Property Name="auto_UC_Name_id" Type="int" />
+          <Property Name="auto_Uc_code_Detail_id" Type="int" />
+          <Property Name="LocationAddress" Type="nvarchar(max)" />
+          <Property Name="code_universal" Type="nvarchar(max)" />
+          <Property Name="auto_SponsorID" Type="int" />
+          <Property Name="Executing_Agency_ID" Type="int" />
+          <Property Name="auto_Dept_Id" Type="int" />
+          <Property Name="Estimated_Cost" Type="float" />
+          <Property Name="auto_forum_id" Type="int" />
+          <Property Name="Date_Approval" Type="datetime" />
+          <Property Name="AttachmentMOM" Type="nvarchar(max)" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+          <Property Name="objScheme" Type="nvarchar(max)" />
+          <Property Name="AttachmentPC1" Type="nvarchar(max)" />
+          <Property Name="AA" Type="nvarchar(max)" />
+          <Property Name="AA_Date" Type="datetime" />
+          <Property Name="AA_No" Type="nvarchar(max)" />
+          <Property Name="AA_Approved_cost" Type="float" />
+          <Property Name="TS" Type="nvarchar(max)" />
+          <Property Name="TS_Date" Type="datetime" />
+          <Property Name="schementryDate" Type="datetime" />
+          <Property Name="AspNetUserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="auto_package_id" Type="int" />
+          <Property Name="ApprovedSchemes" Type="bit" />
+          <Property Name="Auto_child_subSectorid" Type="int" />
+          <Property Name="WorkOrderIssue" Type="bit" />
+          <Property Name="WorkOrderDate" Type="datetime" />
+          <Property Name="ProcurementUnderProgress" Type="bit" />
+          <Property Name="TenderDate" Type="date" />
+          <Property Name="PefraProjectId" Type="nvarchar(max)" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="SchemeInitiatedId" Type="int" />
+          <Property Name="DDIC_Date" Type="date" />
+          <Property Name="WorkOrder_Attachment" Type="nvarchar(max)" />
+          <Property Name="DDC_Attachment" Type="nvarchar(max)" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Tehsil_Id" Type="int" />
+          <Property Name="UC_MC_Detail_Id" Type="int" />
+          <Property Name="UC_Type_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_progress_raw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_json" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="db_date_time" Type="datetime" />
+          <Property Name="app_version" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="imei" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="local_id" Type="int" Nullable="false" />
+          <Property Name="unique_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="img1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="img2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="img3" Type="nvarchar(max)" />
+          <Property Name="img4" Type="nvarchar(max)" />
+          <Property Name="geom" Type="geometry" Nullable="false" />
+          <Property Name="user_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Added" Type="bit" />
+          <Property Name="qc_status" Type="bit" />
+          <Property Name="qc_status_remarks" Type="nvarchar(max)" />
+          <Property Name="dist_id" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="auto_Pm_Scheme_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_progress_raw_monitoring">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_json" Type="nvarchar(max)" />
+          <Property Name="db_date_time" Type="datetime" />
+          <Property Name="app_version" Type="nvarchar" MaxLength="50" />
+          <Property Name="imei" Type="nvarchar" MaxLength="50" />
+          <Property Name="local_id" Type="int" />
+          <Property Name="unique_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="img1" Type="nvarchar(max)" />
+          <Property Name="img2" Type="nvarchar(max)" />
+          <Property Name="img3" Type="nvarchar(max)" />
+          <Property Name="img4" Type="nvarchar(max)" />
+          <Property Name="geom" Type="geometry" />
+          <Property Name="user_role" Type="nvarchar(max)" />
+          <Property Name="Added" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Progress_Scheme_GIS">
+          <Key>
+            <PropertyRef Name="auto_mapping_id" />
+          </Key>
+          <Property Name="auto_Pm_Scheme_id" Type="int" Nullable="false" />
+          <Property Name="geom" Type="geometry" Nullable="false" />
+          <Property Name="file_path" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Div_ID" Type="int" />
+          <Property Name="Distt_ID" Type="int" />
+          <Property Name="mobile_datetime" Type="datetime" Nullable="false" />
+          <Property Name="remarks" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="imei" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="progress" Type="int" Nullable="false" />
+          <Property Name="auto_mapping_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="db_datetime" Type="datetime" />
+          <Property Name="appversion" Type="varchar" MaxLength="10" />
+          <Property Name="local_id" Type="int" />
+          <Property Name="picture_two" Type="varchar" MaxLength="255" />
+          <Property Name="picture_three" Type="varchar" MaxLength="255" />
+          <Property Name="picture_four" Type="varchar" MaxLength="255" />
+          <Property Name="status_id" Type="int" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="bit_for_dd" Type="bit" />
+          <Property Name="Quality_issue" Type="nvarchar(max)" />
+          <Property Name="Time_delay_Issue" Type="nvarchar(max)" />
+          <Property Name="Contractor_Issue" Type="nvarchar(max)" />
+          <Property Name="Payment_Issue" Type="nvarchar(max)" />
+          <Property Name="Consultant_Issue" Type="nvarchar(max)" />
+          <Property Name="Land_Issue" Type="nvarchar(max)" />
+          <Property Name="Drawing_Issue" Type="nvarchar(max)" />
+          <Property Name="Other_Issue" Type="nvarchar(max)" />
+          <Property Name="image_status_id" Type="int" />
+          <Property Name="Uc_Id" Type="int" />
+          <Property Name="DesignationId" Type="int" />
+          <Property Name="unique_code" Type="nvarchar" MaxLength="500" />
+          <Property Name="progress_raw_id" Type="int" />
+          <Property Name="progress_raw_monitoring_id" Type="int" />
+          <Property Name="geom_new" Type="geometry" />
+          <Property Name="col_a" Type="nvarchar(max)" />
+          <Property Name="col_b" Type="nvarchar(max)" />
+          <Property Name="col_c" Type="nvarchar(max)" />
+          <Property Name="col_d" Type="nvarchar(max)" />
+          <Property Name="col_e" Type="nvarchar(max)" />
+          <Property Name="designation_double_check" Type="nvarchar(max)" />
+          <Property Name="data_captured_from_app_version" Type="nvarchar(max)" />
+          <Property Name="need_designation_correction" Type="nvarchar(max)" />
+          <Property Name="qc_status" Type="bit" />
+          <Property Name="qc_status_remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UC_Schemes.dbo.tbl_raw_tpv' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_raw_tpv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_json" Type="nvarchar(max)" />
+          <Property Name="db_date_time" Type="datetime" />
+          <Property Name="app_version" Type="nvarchar" MaxLength="50" />
+          <Property Name="imei" Type="nvarchar" MaxLength="50" />
+          <Property Name="local_id" Type="int" />
+          <Property Name="mobile_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="img_scheme_1" Type="nvarchar(max)" />
+          <Property Name="geom_scheme_1" Type="geometry" />
+          <Property Name="img_scheme_2" Type="nvarchar(max)" />
+          <Property Name="geom_scheme_2" Type="geometry" />
+          <Property Name="img_bricks" Type="nvarchar(max)" />
+          <Property Name="geom_bricks" Type="geometry" />
+          <Property Name="img_pcc" Type="nvarchar(max)" />
+          <Property Name="geom_pcc" Type="geometry" />
+          <Property Name="img_mortor" Type="nvarchar(max)" />
+          <Property Name="geom_mortor" Type="geometry" />
+          <Property Name="img_plaster" Type="nvarchar(max)" />
+          <Property Name="geom_plaster" Type="geometry" />
+          <Property Name="img_steel" Type="nvarchar(max)" />
+          <Property Name="geom_steel" Type="geometry" />
+          <Property Name="img_concrete" Type="nvarchar(max)" />
+          <Property Name="geom_concrete" Type="geometry" />
+          <Property Name="user_role" Type="nvarchar(max)" />
+          <Property Name="Added" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_SendSMS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Distt_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_UC_MC_Detail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UC_Type_Id" Type="int" />
+          <Property Name="Tehsil_Id" Type="int" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="UC_No" Type="int" />
+        </EntityType>
+        <EntityType Name="tpv_progress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="db_date_time" Type="datetime" />
+          <Property Name="app_version" Type="nvarchar" MaxLength="50" />
+          <Property Name="imei" Type="nvarchar" MaxLength="50" />
+          <Property Name="local_id" Type="int" />
+          <Property Name="mobile_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="img_scheme_1" Type="nvarchar(max)" />
+          <Property Name="geom_scheme_1" Type="geometry" />
+          <Property Name="img_scheme_2" Type="nvarchar(max)" />
+          <Property Name="geom_scheme_2" Type="geometry" />
+          <Property Name="img_bricks" Type="nvarchar(max)" />
+          <Property Name="geom_bricks" Type="geometry" />
+          <Property Name="img_pcc" Type="nvarchar(max)" />
+          <Property Name="geom_pcc" Type="geometry" />
+          <Property Name="img_mortor" Type="nvarchar(max)" />
+          <Property Name="geom_mortor" Type="geometry" />
+          <Property Name="img_plaster" Type="nvarchar(max)" />
+          <Property Name="geom_plaster" Type="geometry" />
+          <Property Name="img_steel" Type="nvarchar(max)" />
+          <Property Name="geom_steel" Type="geometry" />
+          <Property Name="img_concrete" Type="nvarchar(max)" />
+          <Property Name="geom_concrete" Type="geometry" />
+          <Property Name="user_role" Type="nvarchar(max)" />
+          <Property Name="Added" Type="bit" />
+          <Property Name="is_bricks_measurements_test" Type="nvarchar" MaxLength="50" />
+          <Property Name="scheme_measurement" Type="bit" />
+          <Property Name="is_bricks_crushing_strength_test" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_steel_tensile_and_yield_strength_test" Type="nvarchar" MaxLength="50" />
+          <Property Name="tehsil_id" Type="int" />
+          <Property Name="data_captured_from_app_version" Type="nvarchar(max)" />
+          <Property Name="previous_scheme_condition" Type="nvarchar(max)" />
+          <Property Name="is_pcc_material" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_concrete_pavers_material" Type="nvarchar" MaxLength="50" />
+          <Property Name="scheme_id" Type="int" />
+          <Property Name="is_plaster_thickness_test" Type="nvarchar" MaxLength="50" />
+          <Property Name="imei_surveyed_mobile" Type="nvarchar(max)" />
+          <Property Name="is_pcc_ratio_concrete_test" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_concrete_pavers_size_test" Type="nvarchar" MaxLength="50" />
+          <Property Name="district_id" Type="int" />
+          <Property Name="status_id" Type="int" />
+          <Property Name="lng3" Type="nvarchar(max)" />
+          <Property Name="lng4" Type="nvarchar(max)" />
+          <Property Name="lng1" Type="nvarchar(max)" />
+          <Property Name="lng2" Type="nvarchar(max)" />
+          <Property Name="lng8" Type="nvarchar(max)" />
+          <Property Name="user_name" Type="nvarchar(max)" />
+          <Property Name="lng7" Type="nvarchar(max)" />
+          <Property Name="lng6" Type="nvarchar(max)" />
+          <Property Name="lng5" Type="nvarchar(max)" />
+          <Property Name="date_time_mobile" Type="nvarchar(max)" />
+          <Property Name="is_bricks_material" Type="nvarchar(max)" />
+          <Property Name="scheme_exits" Type="bit" />
+          <Property Name="is_mortar_ratio_cement_sand_test" Type="nvarchar(max)" />
+          <Property Name="quality_of_work" Type="int" />
+          <Property Name="remarks" Type="nvarchar(max)" />
+          <Property Name="is_bricks_absorption_test" Type="nvarchar(max)" />
+          <Property Name="col_a" Type="nvarchar(max)" />
+          <Property Name="col_b" Type="nvarchar(max)" />
+          <Property Name="is_pcc_crushing_strength_test" Type="nvarchar(max)" />
+          <Property Name="col_e" Type="nvarchar(max)" />
+          <Property Name="col_c" Type="nvarchar(max)" />
+          <Property Name="col_d" Type="nvarchar(max)" />
+          <Property Name="user_mobile" Type="nvarchar(max)" />
+          <Property Name="uc_id" Type="int" />
+          <Property Name="lat8" Type="nvarchar(max)" />
+          <Property Name="lat7" Type="nvarchar(max)" />
+          <Property Name="lat4" Type="nvarchar(max)" />
+          <Property Name="lat3" Type="nvarchar(max)" />
+          <Property Name="data_sync_time" Type="nvarchar(max)" />
+          <Property Name="lat6" Type="nvarchar(max)" />
+          <Property Name="is_concrete_pavers_crushing_strength_test" Type="nvarchar(max)" />
+          <Property Name="lat5" Type="nvarchar(max)" />
+          <Property Name="uc_mc_type_id" Type="int" />
+          <Property Name="lat2" Type="nvarchar(max)" />
+          <Property Name="lat1" Type="nvarchar(max)" />
+          <Property Name="is_steel_material" Type="nvarchar(max)" />
+          <Property Name="unique_code" Type="nvarchar(max)" />
+          <Property Name="district_name" Type="nvarchar(max)" />
+          <Property Name="is_mortar_material" Type="nvarchar(max)" />
+          <Property Name="uc_mc_name" Type="nvarchar(max)" />
+          <Property Name="tehsil_name" Type="nvarchar(max)" />
+          <Property Name="is_plaster_material" Type="nvarchar(max)" />
+          <Property Name="scheme_value" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme">
+          <End Role="Pm_Tbl_Main_Scheme" Type="Self.Pm_Tbl_Main_Scheme" Multiplicity="1" />
+          <End Role="Pm_Tbl_Main_Scheme1" Type="Self.Pm_Tbl_Main_Scheme" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="Pm_Tbl_Main_Scheme1">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1">
+          <End Role="Pm_Tbl_Main_Scheme" Type="Self.Pm_Tbl_Main_Scheme" Multiplicity="1" />
+          <End Role="Pm_Tbl_Main_Scheme1" Type="Self.Pm_Tbl_Main_Scheme" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="Pm_Tbl_Main_Scheme1">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail">
+          <End Role="tbl_UC_MC_Detail" Type="Self.tbl_UC_MC_Detail" Multiplicity="0..1" />
+          <End Role="Pm_Tbl_Main_Scheme" Type="Self.Pm_Tbl_Main_Scheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UC_MC_Detail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="UC_MC_Detail_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme">
+          <End Role="Pm_Tbl_Main_Scheme" Type="Self.Pm_Tbl_Main_Scheme" Multiplicity="1" />
+          <End Role="tbl_Progress_Scheme_GIS" Type="Self.tbl_Progress_Scheme_GIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="tbl_Progress_Scheme_GIS">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail">
+          <End Role="tbl_UC_MC_Detail" Type="Self.tbl_UC_MC_Detail" Multiplicity="0..1" />
+          <End Role="tbl_Progress_Scheme_GIS" Type="Self.tbl_Progress_Scheme_GIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UC_MC_Detail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Progress_Scheme_GIS">
+              <PropertyRef Name="Uc_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tpv_progress_Pm_Tbl_Main_Scheme">
+          <End Role="Pm_Tbl_Main_Scheme" Type="Self.Pm_Tbl_Main_Scheme" Multiplicity="0..1" />
+          <End Role="tpv_progress" Type="Self.tpv_progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="tpv_progress">
+              <PropertyRef Name="scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tpv_progress_tbl_UC_MC_Detail">
+          <End Role="tbl_UC_MC_Detail" Type="Self.tbl_UC_MC_Detail" Multiplicity="0..1" />
+          <End Role="tpv_progress" Type="Self.tpv_progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UC_MC_Detail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tpv_progress">
+              <PropertyRef Name="uc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UC_SchemesModelStoreContainer">
+          <EntitySet Name="Pm_Tbl_Main_Scheme" EntityType="Self.Pm_Tbl_Main_Scheme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_progress_raw" EntityType="Self.tbl_progress_raw" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_progress_raw_monitoring" EntityType="Self.tbl_progress_raw_monitoring" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Progress_Scheme_GIS" EntityType="Self.tbl_Progress_Scheme_GIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SendSMS" EntityType="Self.tbl_SendSMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UC_MC_Detail" EntityType="Self.tbl_UC_MC_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tpv_progress" EntityType="Self.tpv_progress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_raw_tpv" EntityType="Self.tbl_raw_tpv" store:Type="Tables" Schema="dbo">
+            
+          </EntitySet>
+          <AssociationSet Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme" Association="Self.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="Pm_Tbl_Main_Scheme1" EntitySet="Pm_Tbl_Main_Scheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1" Association="Self.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="Pm_Tbl_Main_Scheme1" EntitySet="Pm_Tbl_Main_Scheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail" Association="Self.FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail">
+            <End Role="tbl_UC_MC_Detail" EntitySet="tbl_UC_MC_Detail" />
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme" Association="Self.FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="tbl_Progress_Scheme_GIS" EntitySet="tbl_Progress_Scheme_GIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail" Association="Self.FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail">
+            <End Role="tbl_UC_MC_Detail" EntitySet="tbl_UC_MC_Detail" />
+            <End Role="tbl_Progress_Scheme_GIS" EntitySet="tbl_Progress_Scheme_GIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tpv_progress_Pm_Tbl_Main_Scheme" Association="Self.FK_tpv_progress_Pm_Tbl_Main_Scheme">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="tpv_progress" EntitySet="tpv_progress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tpv_progress_tbl_UC_MC_Detail" Association="Self.FK_tpv_progress_tbl_UC_MC_Detail">
+            <End Role="tbl_UC_MC_Detail" EntitySet="tbl_UC_MC_Detail" />
+            <End Role="tpv_progress" EntitySet="tpv_progress" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UC_SchemesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Progress_Scheme_GIS">
+          <Key>
+            <PropertyRef Name="auto_mapping_id" />
+          </Key>
+          <Property Name="auto_Pm_Scheme_id" Type="Int32" Nullable="false" />
+          <Property Name="geom" Type="Geometry" Nullable="false" />
+          <Property Name="file_path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Div_ID" Type="Int32" />
+          <Property Name="Distt_ID" Type="Int32" />
+          <Property Name="mobile_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imei" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="progress" Type="Int32" Nullable="false" />
+          <Property Name="auto_mapping_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="db_datetime" Type="DateTime" Precision="3" />
+          <Property Name="appversion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="local_id" Type="Int32" />
+          <Property Name="picture_two" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="picture_three" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="picture_four" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="status_id" Type="Int32" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bit_for_dd" Type="Boolean" />
+          <Property Name="Quality_issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time_delay_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contractor_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Consultant_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Land_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Drawing_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Other_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="image_status_id" Type="Int32" />
+          <Property Name="Uc_Id" Type="Int32" />
+          <Property Name="DesignationId" Type="Int32" />
+          <Property Name="unique_code" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="progress_raw_id" Type="Int32" />
+          <Property Name="progress_raw_monitoring_id" Type="Int32" />
+          <Property Name="geom_new" Type="Geometry" />
+          <NavigationProperty Name="Pm_Tbl_Main_Scheme" Relationship="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme" FromRole="tbl_Progress_Scheme_GIS" ToRole="Pm_Tbl_Main_Scheme" />
+          <Property Name="col_a" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_b" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_c" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_d" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_e" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="designation_double_check" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data_captured_from_app_version" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="need_designation_correction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_UC_MC_Detail" Relationship="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail" FromRole="tbl_Progress_Scheme_GIS" ToRole="tbl_UC_MC_Detail" />
+          <Property Name="qc_status" Type="Boolean" />
+          <Property Name="qc_status_remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="UC_SchemesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Progress_Scheme_GIS" EntityType="Self.tbl_Progress_Scheme_GIS" />
+          <EntitySet Name="tbl_progress_raw_monitoring" EntityType="UC_SchemesModel.tbl_progress_raw_monitoring" />
+          <EntitySet Name="Pm_Tbl_Main_Scheme" EntityType="UC_SchemesModel.Pm_Tbl_Main_Scheme" />
+          <AssociationSet Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme" Association="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="Pm_Tbl_Main_Scheme1" EntitySet="Pm_Tbl_Main_Scheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1" Association="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="Pm_Tbl_Main_Scheme1" EntitySet="Pm_Tbl_Main_Scheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme" Association="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="tbl_Progress_Scheme_GIS" EntitySet="tbl_Progress_Scheme_GIS" />
+          </AssociationSet>
+          <EntitySet Name="tbl_UC_MC_Detail" EntityType="UC_SchemesModel.tbl_UC_MC_Detail" />
+          <AssociationSet Name="FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail" Association="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail">
+            <End Role="tbl_UC_MC_Detail" EntitySet="tbl_UC_MC_Detail" />
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail" Association="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail">
+            <End Role="tbl_UC_MC_Detail" EntitySet="tbl_UC_MC_Detail" />
+            <End Role="tbl_Progress_Scheme_GIS" EntitySet="tbl_Progress_Scheme_GIS" />
+          </AssociationSet>
+          <EntitySet Name="tbl_SendSMS" EntityType="UC_SchemesModel.tbl_SendSMS" />
+          <EntitySet Name="tbl_progress_raw" EntityType="UC_SchemesModel.tbl_progress_raw" />
+          <EntitySet Name="tbl_raw_tpv" EntityType="UC_SchemesModel.tbl_raw_tpv" />
+          <EntitySet Name="tpv_progress" EntityType="UC_SchemesModel.tpv_progress" />
+          <AssociationSet Name="FK_tpv_progress_Pm_Tbl_Main_Scheme" Association="UC_SchemesModel.FK_tpv_progress_Pm_Tbl_Main_Scheme">
+            <End Role="Pm_Tbl_Main_Scheme" EntitySet="Pm_Tbl_Main_Scheme" />
+            <End Role="tpv_progress" EntitySet="tpv_progress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tpv_progress_tbl_UC_MC_Detail" Association="UC_SchemesModel.FK_tpv_progress_tbl_UC_MC_Detail">
+            <End Role="tbl_UC_MC_Detail" EntitySet="tbl_UC_MC_Detail" />
+            <End Role="tpv_progress" EntitySet="tpv_progress" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="tbl_progress_raw_monitoring">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_json" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="db_date_time" Type="DateTime" Precision="3" />
+          <Property Name="app_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="local_id" Type="Int32" />
+          <Property Name="unique_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom" Type="Geometry" />
+          <Property Name="user_role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Added" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Pm_Tbl_Main_Scheme">
+          <Key>
+            <PropertyRef Name="auto_Pm_Scheme_id" />
+          </Key>
+          <Property Name="auto_Pm_Scheme_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_Scheme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="auto_Sector_id" Type="Int32" />
+          <Property Name="auto_subSector_id" Type="Int32" />
+          <Property Name="SDG_id" Type="Int32" />
+          <Property Name="Prov_id" Type="Int32" />
+          <Property Name="Div_ID" Type="Int32" />
+          <Property Name="Distt_ID" Type="Int32" />
+          <Property Name="auto_na_constituency_id" Type="Int32" />
+          <Property Name="auto_pp_constituency_id" Type="Int32" />
+          <Property Name="auto_UC_Name_id" Type="Int32" />
+          <Property Name="auto_Uc_code_Detail_id" Type="Int32" />
+          <Property Name="LocationAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="code_universal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="auto_SponsorID" Type="Int32" />
+          <Property Name="Executing_Agency_ID" Type="Int32" />
+          <Property Name="auto_Dept_Id" Type="Int32" />
+          <Property Name="Estimated_Cost" Type="Double" />
+          <Property Name="auto_forum_id" Type="Int32" />
+          <Property Name="Date_Approval" Type="DateTime" Precision="3" />
+          <Property Name="AttachmentMOM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+          <Property Name="objScheme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AttachmentPC1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AA_Date" Type="DateTime" Precision="3" />
+          <Property Name="AA_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AA_Approved_cost" Type="Double" />
+          <Property Name="TS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TS_Date" Type="DateTime" Precision="3" />
+          <Property Name="schementryDate" Type="DateTime" Precision="3" />
+          <Property Name="AspNetUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="auto_package_id" Type="Int32" />
+          <Property Name="ApprovedSchemes" Type="Boolean" />
+          <Property Name="Auto_child_subSectorid" Type="Int32" />
+          <Property Name="WorkOrderIssue" Type="Boolean" />
+          <Property Name="WorkOrderDate" Type="DateTime" Precision="3" />
+          <Property Name="ProcurementUnderProgress" Type="Boolean" />
+          <Property Name="TenderDate" Type="DateTime" Precision="0" />
+          <Property Name="PefraProjectId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="SchemeInitiatedId" Type="Int32" />
+          <Property Name="DDIC_Date" Type="DateTime" Precision="0" />
+          <Property Name="WorkOrder_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DDC_Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tehsil_Id" Type="Int32" />
+          <Property Name="UC_MC_Detail_Id" Type="Int32" />
+          <Property Name="UC_Type_Id" Type="Int32" />
+          <NavigationProperty Name="Pm_Tbl_Main_Scheme1" Relationship="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme" FromRole="Pm_Tbl_Main_Scheme" ToRole="Pm_Tbl_Main_Scheme1" />
+          <NavigationProperty Name="Pm_Tbl_Main_Scheme2" Relationship="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme" FromRole="Pm_Tbl_Main_Scheme1" ToRole="Pm_Tbl_Main_Scheme" />
+          <NavigationProperty Name="Pm_Tbl_Main_Scheme11" Relationship="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1" FromRole="Pm_Tbl_Main_Scheme" ToRole="Pm_Tbl_Main_Scheme1" />
+          <NavigationProperty Name="Pm_Tbl_Main_Scheme3" Relationship="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1" FromRole="Pm_Tbl_Main_Scheme1" ToRole="Pm_Tbl_Main_Scheme" />
+          <NavigationProperty Name="tbl_Progress_Scheme_GIS" Relationship="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme" FromRole="Pm_Tbl_Main_Scheme" ToRole="tbl_Progress_Scheme_GIS" />
+          <NavigationProperty Name="tbl_UC_MC_Detail" Relationship="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail" FromRole="Pm_Tbl_Main_Scheme" ToRole="tbl_UC_MC_Detail" />
+          <NavigationProperty Name="tpv_progress" Relationship="UC_SchemesModel.FK_tpv_progress_Pm_Tbl_Main_Scheme" FromRole="Pm_Tbl_Main_Scheme" ToRole="tpv_progress" />
+        </EntityType>
+        <Association Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme">
+          <End Type="UC_SchemesModel.Pm_Tbl_Main_Scheme" Role="Pm_Tbl_Main_Scheme" Multiplicity="1" />
+          <End Type="UC_SchemesModel.Pm_Tbl_Main_Scheme" Role="Pm_Tbl_Main_Scheme1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="Pm_Tbl_Main_Scheme1">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1">
+          <End Type="UC_SchemesModel.Pm_Tbl_Main_Scheme" Role="Pm_Tbl_Main_Scheme" Multiplicity="1" />
+          <End Type="UC_SchemesModel.Pm_Tbl_Main_Scheme" Role="Pm_Tbl_Main_Scheme1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="Pm_Tbl_Main_Scheme1">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme">
+          <End Type="UC_SchemesModel.Pm_Tbl_Main_Scheme" Role="Pm_Tbl_Main_Scheme" Multiplicity="1" />
+          <End Type="UC_SchemesModel.tbl_Progress_Scheme_GIS" Role="tbl_Progress_Scheme_GIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="tbl_Progress_Scheme_GIS">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_UC_MC_Detail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UC_Type_Id" Type="Int32" />
+          <Property Name="Tehsil_Id" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UC_No" Type="Int32" />
+          <NavigationProperty Name="Pm_Tbl_Main_Scheme" Relationship="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail" FromRole="tbl_UC_MC_Detail" ToRole="Pm_Tbl_Main_Scheme" />
+          <NavigationProperty Name="tbl_Progress_Scheme_GIS" Relationship="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail" FromRole="tbl_UC_MC_Detail" ToRole="tbl_Progress_Scheme_GIS" />
+          <NavigationProperty Name="tpv_progress" Relationship="UC_SchemesModel.FK_tpv_progress_tbl_UC_MC_Detail" FromRole="tbl_UC_MC_Detail" ToRole="tpv_progress" />
+        </EntityType>
+        <Association Name="FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail">
+          <End Type="UC_SchemesModel.tbl_UC_MC_Detail" Role="tbl_UC_MC_Detail" Multiplicity="0..1" />
+          <End Type="UC_SchemesModel.Pm_Tbl_Main_Scheme" Role="Pm_Tbl_Main_Scheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UC_MC_Detail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="UC_MC_Detail_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail">
+          <End Type="UC_SchemesModel.tbl_UC_MC_Detail" Role="tbl_UC_MC_Detail" Multiplicity="0..1" />
+          <End Type="UC_SchemesModel.tbl_Progress_Scheme_GIS" Role="tbl_Progress_Scheme_GIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UC_MC_Detail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Progress_Scheme_GIS">
+              <PropertyRef Name="Uc_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_SendSMS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Distt_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_progress_raw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_json" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="db_date_time" Type="DateTime" Precision="3" />
+          <Property Name="app_version" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imei" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="local_id" Type="Int32" Nullable="false" />
+          <Property Name="unique_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="img1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom" Type="Geometry" Nullable="false" />
+          <Property Name="user_role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Added" Type="Boolean" />
+          <Property Name="qc_status" Type="Boolean" />
+          <Property Name="qc_status_remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dist_id" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="auto_Pm_Scheme_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_raw_tpv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_json" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="db_date_time" Type="DateTime" Precision="3" />
+          <Property Name="app_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="local_id" Type="Int32" />
+          <Property Name="mobile_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img_scheme_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_scheme_1" Type="Geometry" />
+          <Property Name="img_scheme_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_scheme_2" Type="Geometry" />
+          <Property Name="img_bricks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_bricks" Type="Geometry" />
+          <Property Name="img_pcc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_pcc" Type="Geometry" />
+          <Property Name="img_mortor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_mortor" Type="Geometry" />
+          <Property Name="img_plaster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_plaster" Type="Geometry" />
+          <Property Name="img_steel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_steel" Type="Geometry" />
+          <Property Name="img_concrete" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_concrete" Type="Geometry" />
+          <Property Name="user_role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Added" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tpv_progress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="db_date_time" Type="DateTime" Precision="3" />
+          <Property Name="app_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="local_id" Type="Int32" />
+          <Property Name="mobile_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img_scheme_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_scheme_1" Type="Geometry" />
+          <Property Name="img_scheme_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_scheme_2" Type="Geometry" />
+          <Property Name="img_bricks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_bricks" Type="Geometry" />
+          <Property Name="img_pcc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_pcc" Type="Geometry" />
+          <Property Name="img_mortor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_mortor" Type="Geometry" />
+          <Property Name="img_plaster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_plaster" Type="Geometry" />
+          <Property Name="img_steel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_steel" Type="Geometry" />
+          <Property Name="img_concrete" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom_concrete" Type="Geometry" />
+          <Property Name="user_role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Added" Type="Boolean" />
+          <Property Name="is_bricks_measurements_test" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="scheme_measurement" Type="Boolean" />
+          <Property Name="is_bricks_crushing_strength_test" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="is_steel_tensile_and_yield_strength_test" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tehsil_id" Type="Int32" />
+          <Property Name="data_captured_from_app_version" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="previous_scheme_condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_pcc_material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="is_concrete_pavers_material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="scheme_id" Type="Int32" />
+          <Property Name="is_plaster_thickness_test" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imei_surveyed_mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_pcc_ratio_concrete_test" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="is_concrete_pavers_size_test" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="district_id" Type="Int32" />
+          <Property Name="status_id" Type="Int32" />
+          <Property Name="lng3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lng4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lng1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lng2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lng8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="user_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lng7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lng6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lng5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_time_mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_bricks_material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="scheme_exits" Type="Boolean" />
+          <Property Name="is_mortar_ratio_cement_sand_test" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="quality_of_work" Type="Int32" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_bricks_absorption_test" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_a" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_b" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_pcc_crushing_strength_test" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_e" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_c" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_d" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="user_mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uc_id" Type="Int32" />
+          <Property Name="lat8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lat7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lat4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lat3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data_sync_time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lat6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_concrete_pavers_crushing_strength_test" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lat5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uc_mc_type_id" Type="Int32" />
+          <Property Name="lat2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lat1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_steel_material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="unique_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="district_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_mortar_material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uc_mc_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tehsil_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_plaster_material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="scheme_value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pm_Tbl_Main_Scheme" Relationship="UC_SchemesModel.FK_tpv_progress_Pm_Tbl_Main_Scheme" FromRole="tpv_progress" ToRole="Pm_Tbl_Main_Scheme" />
+          <NavigationProperty Name="tbl_UC_MC_Detail" Relationship="UC_SchemesModel.FK_tpv_progress_tbl_UC_MC_Detail" FromRole="tpv_progress" ToRole="tbl_UC_MC_Detail" />
+        </EntityType>
+        <Association Name="FK_tpv_progress_Pm_Tbl_Main_Scheme">
+          <End Type="UC_SchemesModel.Pm_Tbl_Main_Scheme" Role="Pm_Tbl_Main_Scheme" Multiplicity="0..1" />
+          <End Type="UC_SchemesModel.tpv_progress" Role="tpv_progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pm_Tbl_Main_Scheme">
+              <PropertyRef Name="auto_Pm_Scheme_id" />
+            </Principal>
+            <Dependent Role="tpv_progress">
+              <PropertyRef Name="scheme_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tpv_progress_tbl_UC_MC_Detail">
+          <End Type="UC_SchemesModel.tbl_UC_MC_Detail" Role="tbl_UC_MC_Detail" Multiplicity="0..1" />
+          <End Type="UC_SchemesModel.tpv_progress" Role="tpv_progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UC_MC_Detail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tpv_progress">
+              <PropertyRef Name="uc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UC_SchemesModelStoreContainer" CdmEntityContainer="UC_SchemesEntities">
+          <EntitySetMapping Name="tbl_Progress_Scheme_GIS">
+            <EntityTypeMapping TypeName="UC_SchemesModel.tbl_Progress_Scheme_GIS">
+              <MappingFragment StoreEntitySet="tbl_Progress_Scheme_GIS">
+                <ScalarProperty Name="qc_status_remarks" ColumnName="qc_status_remarks" />
+                <ScalarProperty Name="qc_status" ColumnName="qc_status" />
+                <ScalarProperty Name="need_designation_correction" ColumnName="need_designation_correction" />
+                <ScalarProperty Name="data_captured_from_app_version" ColumnName="data_captured_from_app_version" />
+                <ScalarProperty Name="designation_double_check" ColumnName="designation_double_check" />
+                <ScalarProperty Name="col_e" ColumnName="col_e" />
+                <ScalarProperty Name="col_d" ColumnName="col_d" />
+                <ScalarProperty Name="col_c" ColumnName="col_c" />
+                <ScalarProperty Name="col_b" ColumnName="col_b" />
+                <ScalarProperty Name="col_a" ColumnName="col_a" />
+                <ScalarProperty Name="geom_new" ColumnName="geom_new" />
+                <ScalarProperty Name="progress_raw_monitoring_id" ColumnName="progress_raw_monitoring_id" />
+                <ScalarProperty Name="progress_raw_id" ColumnName="progress_raw_id" />
+                <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+                <ScalarProperty Name="auto_Pm_Scheme_id" ColumnName="auto_Pm_Scheme_id" />
+                <ScalarProperty Name="geom" ColumnName="geom" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="mobile_datetime" ColumnName="mobile_datetime" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="progress" ColumnName="progress" />
+                <ScalarProperty Name="auto_mapping_id" ColumnName="auto_mapping_id" />
+                <ScalarProperty Name="db_datetime" ColumnName="db_datetime" />
+                <ScalarProperty Name="appversion" ColumnName="appversion" />
+                <ScalarProperty Name="local_id" ColumnName="local_id" />
+                <ScalarProperty Name="picture_two" ColumnName="picture_two" />
+                <ScalarProperty Name="picture_three" ColumnName="picture_three" />
+                <ScalarProperty Name="picture_four" ColumnName="picture_four" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="User_name" ColumnName="User_name" />
+                <ScalarProperty Name="bit_for_dd" ColumnName="bit_for_dd" />
+                <ScalarProperty Name="Quality_issue" ColumnName="Quality_issue" />
+                <ScalarProperty Name="Time_delay_Issue" ColumnName="Time_delay_Issue" />
+                <ScalarProperty Name="Contractor_Issue" ColumnName="Contractor_Issue" />
+                <ScalarProperty Name="Payment_Issue" ColumnName="Payment_Issue" />
+                <ScalarProperty Name="Consultant_Issue" ColumnName="Consultant_Issue" />
+                <ScalarProperty Name="Land_Issue" ColumnName="Land_Issue" />
+                <ScalarProperty Name="Drawing_Issue" ColumnName="Drawing_Issue" />
+                <ScalarProperty Name="Other_Issue" ColumnName="Other_Issue" />
+                <ScalarProperty Name="image_status_id" ColumnName="image_status_id" />
+                <ScalarProperty Name="Uc_Id" ColumnName="Uc_Id" />
+                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_progress_raw_monitoring">
+            <EntityTypeMapping TypeName="UC_SchemesModel.tbl_progress_raw_monitoring">
+              <MappingFragment StoreEntitySet="tbl_progress_raw_monitoring">
+                <ScalarProperty Name="Added" ColumnName="Added" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="geom" ColumnName="geom" />
+                <ScalarProperty Name="img4" ColumnName="img4" />
+                <ScalarProperty Name="img3" ColumnName="img3" />
+                <ScalarProperty Name="img2" ColumnName="img2" />
+                <ScalarProperty Name="img1" ColumnName="img1" />
+                <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+                <ScalarProperty Name="local_id" ColumnName="local_id" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="app_version" ColumnName="app_version" />
+                <ScalarProperty Name="db_date_time" ColumnName="db_date_time" />
+                <ScalarProperty Name="data_json" ColumnName="data_json" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pm_Tbl_Main_Scheme">
+            <EntityTypeMapping TypeName="UC_SchemesModel.Pm_Tbl_Main_Scheme">
+              <MappingFragment StoreEntitySet="Pm_Tbl_Main_Scheme">
+                <ScalarProperty Name="UC_Type_Id" ColumnName="UC_Type_Id" />
+                <ScalarProperty Name="UC_MC_Detail_Id" ColumnName="UC_MC_Detail_Id" />
+                <ScalarProperty Name="Tehsil_Id" ColumnName="Tehsil_Id" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="DDC_Attachment" ColumnName="DDC_Attachment" />
+                <ScalarProperty Name="WorkOrder_Attachment" ColumnName="WorkOrder_Attachment" />
+                <ScalarProperty Name="DDIC_Date" ColumnName="DDIC_Date" />
+                <ScalarProperty Name="SchemeInitiatedId" ColumnName="SchemeInitiatedId" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="PefraProjectId" ColumnName="PefraProjectId" />
+                <ScalarProperty Name="TenderDate" ColumnName="TenderDate" />
+                <ScalarProperty Name="ProcurementUnderProgress" ColumnName="ProcurementUnderProgress" />
+                <ScalarProperty Name="WorkOrderDate" ColumnName="WorkOrderDate" />
+                <ScalarProperty Name="WorkOrderIssue" ColumnName="WorkOrderIssue" />
+                <ScalarProperty Name="Auto_child_subSectorid" ColumnName="Auto_child_subSectorid" />
+                <ScalarProperty Name="ApprovedSchemes" ColumnName="ApprovedSchemes" />
+                <ScalarProperty Name="auto_package_id" ColumnName="auto_package_id" />
+                <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+                <ScalarProperty Name="schementryDate" ColumnName="schementryDate" />
+                <ScalarProperty Name="TS_Date" ColumnName="TS_Date" />
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="AA_Approved_cost" ColumnName="AA_Approved_cost" />
+                <ScalarProperty Name="AA_No" ColumnName="AA_No" />
+                <ScalarProperty Name="AA_Date" ColumnName="AA_Date" />
+                <ScalarProperty Name="AA" ColumnName="AA" />
+                <ScalarProperty Name="AttachmentPC1" ColumnName="AttachmentPC1" />
+                <ScalarProperty Name="objScheme" ColumnName="objScheme" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="AttachmentMOM" ColumnName="AttachmentMOM" />
+                <ScalarProperty Name="Date_Approval" ColumnName="Date_Approval" />
+                <ScalarProperty Name="auto_forum_id" ColumnName="auto_forum_id" />
+                <ScalarProperty Name="Estimated_Cost" ColumnName="Estimated_Cost" />
+                <ScalarProperty Name="auto_Dept_Id" ColumnName="auto_Dept_Id" />
+                <ScalarProperty Name="Executing_Agency_ID" ColumnName="Executing_Agency_ID" />
+                <ScalarProperty Name="auto_SponsorID" ColumnName="auto_SponsorID" />
+                <ScalarProperty Name="code_universal" ColumnName="code_universal" />
+                <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+                <ScalarProperty Name="auto_Uc_code_Detail_id" ColumnName="auto_Uc_code_Detail_id" />
+                <ScalarProperty Name="auto_UC_Name_id" ColumnName="auto_UC_Name_id" />
+                <ScalarProperty Name="auto_pp_constituency_id" ColumnName="auto_pp_constituency_id" />
+                <ScalarProperty Name="auto_na_constituency_id" ColumnName="auto_na_constituency_id" />
+                <ScalarProperty Name="Distt_ID" ColumnName="Distt_ID" />
+                <ScalarProperty Name="Div_ID" ColumnName="Div_ID" />
+                <ScalarProperty Name="Prov_id" ColumnName="Prov_id" />
+                <ScalarProperty Name="SDG_id" ColumnName="SDG_id" />
+                <ScalarProperty Name="auto_subSector_id" ColumnName="auto_subSector_id" />
+                <ScalarProperty Name="auto_Sector_id" ColumnName="auto_Sector_id" />
+                <ScalarProperty Name="name_Scheme" ColumnName="name_Scheme" />
+                <ScalarProperty Name="auto_Pm_Scheme_id" ColumnName="auto_Pm_Scheme_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UC_MC_Detail">
+            <EntityTypeMapping TypeName="UC_SchemesModel.tbl_UC_MC_Detail">
+              <MappingFragment StoreEntitySet="tbl_UC_MC_Detail">
+                <ScalarProperty Name="UC_No" ColumnName="UC_No" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tehsil_Id" ColumnName="Tehsil_Id" />
+                <ScalarProperty Name="UC_Type_Id" ColumnName="UC_Type_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_SendSMS">
+            <EntityTypeMapping TypeName="UC_SchemesModel.tbl_SendSMS">
+              <MappingFragment StoreEntitySet="tbl_SendSMS">
+                <ScalarProperty Name="Distt_Id" ColumnName="Distt_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_progress_raw">
+            <EntityTypeMapping TypeName="UC_SchemesModel.tbl_progress_raw">
+              <MappingFragment StoreEntitySet="tbl_progress_raw">
+                <ScalarProperty Name="auto_Pm_Scheme_id" ColumnName="auto_Pm_Scheme_id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="dist_id" ColumnName="dist_id" />
+                <ScalarProperty Name="qc_status_remarks" ColumnName="qc_status_remarks" />
+                <ScalarProperty Name="qc_status" ColumnName="qc_status" />
+                <ScalarProperty Name="Added" ColumnName="Added" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="geom" ColumnName="geom" />
+                <ScalarProperty Name="img4" ColumnName="img4" />
+                <ScalarProperty Name="img3" ColumnName="img3" />
+                <ScalarProperty Name="img2" ColumnName="img2" />
+                <ScalarProperty Name="img1" ColumnName="img1" />
+                <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+                <ScalarProperty Name="local_id" ColumnName="local_id" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="app_version" ColumnName="app_version" />
+                <ScalarProperty Name="db_date_time" ColumnName="db_date_time" />
+                <ScalarProperty Name="data_json" ColumnName="data_json" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_raw_tpv">
+            <EntityTypeMapping TypeName="UC_SchemesModel.tbl_raw_tpv">
+              <MappingFragment StoreEntitySet="tbl_raw_tpv">
+                <ScalarProperty Name="Added" ColumnName="Added" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="geom_concrete" ColumnName="geom_concrete" />
+                <ScalarProperty Name="img_concrete" ColumnName="img_concrete" />
+                <ScalarProperty Name="geom_steel" ColumnName="geom_steel" />
+                <ScalarProperty Name="img_steel" ColumnName="img_steel" />
+                <ScalarProperty Name="geom_plaster" ColumnName="geom_plaster" />
+                <ScalarProperty Name="img_plaster" ColumnName="img_plaster" />
+                <ScalarProperty Name="geom_mortor" ColumnName="geom_mortor" />
+                <ScalarProperty Name="img_mortor" ColumnName="img_mortor" />
+                <ScalarProperty Name="geom_pcc" ColumnName="geom_pcc" />
+                <ScalarProperty Name="img_pcc" ColumnName="img_pcc" />
+                <ScalarProperty Name="geom_bricks" ColumnName="geom_bricks" />
+                <ScalarProperty Name="img_bricks" ColumnName="img_bricks" />
+                <ScalarProperty Name="geom_scheme_2" ColumnName="geom_scheme_2" />
+                <ScalarProperty Name="img_scheme_2" ColumnName="img_scheme_2" />
+                <ScalarProperty Name="geom_scheme_1" ColumnName="geom_scheme_1" />
+                <ScalarProperty Name="img_scheme_1" ColumnName="img_scheme_1" />
+                <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+                <ScalarProperty Name="local_id" ColumnName="local_id" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="app_version" ColumnName="app_version" />
+                <ScalarProperty Name="db_date_time" ColumnName="db_date_time" />
+                <ScalarProperty Name="data_json" ColumnName="data_json" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tpv_progress">
+            <EntityTypeMapping TypeName="UC_SchemesModel.tpv_progress">
+              <MappingFragment StoreEntitySet="tpv_progress">
+                <ScalarProperty Name="scheme_value" ColumnName="scheme_value" />
+                <ScalarProperty Name="is_plaster_material" ColumnName="is_plaster_material" />
+                <ScalarProperty Name="tehsil_name" ColumnName="tehsil_name" />
+                <ScalarProperty Name="uc_mc_name" ColumnName="uc_mc_name" />
+                <ScalarProperty Name="is_mortar_material" ColumnName="is_mortar_material" />
+                <ScalarProperty Name="district_name" ColumnName="district_name" />
+                <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+                <ScalarProperty Name="is_steel_material" ColumnName="is_steel_material" />
+                <ScalarProperty Name="lat1" ColumnName="lat1" />
+                <ScalarProperty Name="lat2" ColumnName="lat2" />
+                <ScalarProperty Name="uc_mc_type_id" ColumnName="uc_mc_type_id" />
+                <ScalarProperty Name="lat5" ColumnName="lat5" />
+                <ScalarProperty Name="is_concrete_pavers_crushing_strength_test" ColumnName="is_concrete_pavers_crushing_strength_test" />
+                <ScalarProperty Name="lat6" ColumnName="lat6" />
+                <ScalarProperty Name="data_sync_time" ColumnName="data_sync_time" />
+                <ScalarProperty Name="lat3" ColumnName="lat3" />
+                <ScalarProperty Name="lat4" ColumnName="lat4" />
+                <ScalarProperty Name="lat7" ColumnName="lat7" />
+                <ScalarProperty Name="lat8" ColumnName="lat8" />
+                <ScalarProperty Name="uc_id" ColumnName="uc_id" />
+                <ScalarProperty Name="user_mobile" ColumnName="user_mobile" />
+                <ScalarProperty Name="col_d" ColumnName="col_d" />
+                <ScalarProperty Name="col_c" ColumnName="col_c" />
+                <ScalarProperty Name="col_e" ColumnName="col_e" />
+                <ScalarProperty Name="is_pcc_crushing_strength_test" ColumnName="is_pcc_crushing_strength_test" />
+                <ScalarProperty Name="col_b" ColumnName="col_b" />
+                <ScalarProperty Name="col_a" ColumnName="col_a" />
+                <ScalarProperty Name="is_bricks_absorption_test" ColumnName="is_bricks_absorption_test" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="quality_of_work" ColumnName="quality_of_work" />
+                <ScalarProperty Name="is_mortar_ratio_cement_sand_test" ColumnName="is_mortar_ratio_cement_sand_test" />
+                <ScalarProperty Name="scheme_exits" ColumnName="scheme_exits" />
+                <ScalarProperty Name="is_bricks_material" ColumnName="is_bricks_material" />
+                <ScalarProperty Name="date_time_mobile" ColumnName="date_time_mobile" />
+                <ScalarProperty Name="lng5" ColumnName="lng5" />
+                <ScalarProperty Name="lng6" ColumnName="lng6" />
+                <ScalarProperty Name="lng7" ColumnName="lng7" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="lng8" ColumnName="lng8" />
+                <ScalarProperty Name="lng2" ColumnName="lng2" />
+                <ScalarProperty Name="lng1" ColumnName="lng1" />
+                <ScalarProperty Name="lng4" ColumnName="lng4" />
+                <ScalarProperty Name="lng3" ColumnName="lng3" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+                <ScalarProperty Name="is_concrete_pavers_size_test" ColumnName="is_concrete_pavers_size_test" />
+                <ScalarProperty Name="is_pcc_ratio_concrete_test" ColumnName="is_pcc_ratio_concrete_test" />
+                <ScalarProperty Name="imei_surveyed_mobile" ColumnName="imei_surveyed_mobile" />
+                <ScalarProperty Name="is_plaster_thickness_test" ColumnName="is_plaster_thickness_test" />
+                <ScalarProperty Name="scheme_id" ColumnName="scheme_id" />
+                <ScalarProperty Name="is_concrete_pavers_material" ColumnName="is_concrete_pavers_material" />
+                <ScalarProperty Name="is_pcc_material" ColumnName="is_pcc_material" />
+                <ScalarProperty Name="previous_scheme_condition" ColumnName="previous_scheme_condition" />
+                <ScalarProperty Name="data_captured_from_app_version" ColumnName="data_captured_from_app_version" />
+                <ScalarProperty Name="tehsil_id" ColumnName="tehsil_id" />
+                <ScalarProperty Name="is_steel_tensile_and_yield_strength_test" ColumnName="is_steel_tensile_and_yield_strength_test" />
+                <ScalarProperty Name="is_bricks_crushing_strength_test" ColumnName="is_bricks_crushing_strength_test" />
+                <ScalarProperty Name="scheme_measurement" ColumnName="scheme_measurement" />
+                <ScalarProperty Name="is_bricks_measurements_test" ColumnName="is_bricks_measurements_test" />
+                <ScalarProperty Name="Added" ColumnName="Added" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="geom_concrete" ColumnName="geom_concrete" />
+                <ScalarProperty Name="img_concrete" ColumnName="img_concrete" />
+                <ScalarProperty Name="geom_steel" ColumnName="geom_steel" />
+                <ScalarProperty Name="img_steel" ColumnName="img_steel" />
+                <ScalarProperty Name="geom_plaster" ColumnName="geom_plaster" />
+                <ScalarProperty Name="img_plaster" ColumnName="img_plaster" />
+                <ScalarProperty Name="geom_mortor" ColumnName="geom_mortor" />
+                <ScalarProperty Name="img_mortor" ColumnName="img_mortor" />
+                <ScalarProperty Name="geom_pcc" ColumnName="geom_pcc" />
+                <ScalarProperty Name="img_pcc" ColumnName="img_pcc" />
+                <ScalarProperty Name="geom_bricks" ColumnName="geom_bricks" />
+                <ScalarProperty Name="img_bricks" ColumnName="img_bricks" />
+                <ScalarProperty Name="geom_scheme_2" ColumnName="geom_scheme_2" />
+                <ScalarProperty Name="img_scheme_2" ColumnName="img_scheme_2" />
+                <ScalarProperty Name="geom_scheme_1" ColumnName="geom_scheme_1" />
+                <ScalarProperty Name="img_scheme_1" ColumnName="img_scheme_1" />
+                <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+                <ScalarProperty Name="local_id" ColumnName="local_id" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="app_version" ColumnName="app_version" />
+                <ScalarProperty Name="db_date_time" ColumnName="db_date_time" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

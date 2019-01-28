@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebServices.Models.CM_Schemes.SchemesRecordModel>
+@{
+    ViewBag.Title = "GetValues";
+}
+
+<h2>GetValues</h2>
+<div class="row">
+    <div class="col-sm-12 table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>SchemeName</th>
+                    <th>Division</th>
+                    <th>District</th>
+                    <th>Na</th>
+                    <th>Pp</th>
+                    <th>Sector</th>
+                    <th>SubSector</th>
+                    <th>ChildSubSector</th>
+                    <th>ExecutingAgency</th>
+                    <th>ApprovalDate</th>
+                    <th>StartDate</th>
+                    <th>EndDate</th>
+                    <th>Objectives</th>
+                    <th>AaDate</th>
+                    <th>ApprovedCost</th>
+                    <th>TsDate</th>
+                    <th>EntryDate</th>
+                    <th>WorkOrderDate</th>
+                    <th>ProcurementUnderProgress</th>
+                    <th>TenderDate</th>
+                    <th>ProjectId</th>
+                    <th>ReleaseAmount</th>
+                    <th>UtilizeAmount</th>
+                    <th>Progress</th>
+                    <th>Estimated Cost</th>
+                    <th>Status</th>
+                    <th>SchemeInitiatedId</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.ID</th>
+                        <th>@item.SchemeName</th>
+                        <th>@item.Division</th>
+                        <th>@item.District</th>
+                        <th>@item.Na</th>
+                        <th>@item.Pp</th>
+                        <th>@item.Sector</th>
+                        <th>@item.SubSector</th>
+                        <th>@item.ChildSubSector</th>
+                        <th>@item.ExecutingAgency</th>
+                        <th>@item.ApprovalDate</th>
+                        <th>@item.StartDate</th>
+                        <th>@item.EndDate</th>
+                        <th>@item.Objectives</th>
+                        <th>@item.AaDate</th>
+                        <th>@item.ApprovedCost</th>
+                        <th>@item.TsDate</th>
+                        <th>@item.EntryDate</th>
+                        <th>@item.WorkOrderDate</th>
+                        <th>@item.ProcurementUnderProgress</th>
+                        <th>@item.TenderDate</th>
+                        <th>@item.ProjectId</th>
+                        <th>@item.ReleaseAmount</th>
+                        <th>@item.UtilizeAmount</th>
+                        <th>@item.Progress</th>
+                        <td>@item.EstimatedCost</td>
+                        <th>@item.Status</th>
+                        <th>@item.SchemeInitiatedId</th>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

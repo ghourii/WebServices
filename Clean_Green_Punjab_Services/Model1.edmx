@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="clean_green_punjabModel.Store" Provider="Npgsql" ProviderManifestToken="9.4.9" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="android_user_sms_verification">
+          <Key>
+            <PropertyRef Name="pk_id" />
+          </Key>
+          <Property Name="pk_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="8000" />
+          <Property Name="imei" Type="varchar" MaxLength="8000" />
+          <Property Name="sms_code" Type="varchar" MaxLength="8000" />
+          <Property Name="is_verified" Type="bool" />
+          <Property Name="code_create_date_time" Type="timestamp" />
+          <Property Name="code_verified_date_time" Type="timestamp" />
+        </EntityType>
+        <EntityContainer Name="clean_green_punjabModelStoreContainer">
+          <EntitySet Name="android_user_sms_verification" EntityType="Self.android_user_sms_verification" Schema="public" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="clean_green_punjabModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="android_user_sms_verification">
+          <Key>
+            <PropertyRef Name="pk_id" />
+          </Key>
+          <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mobile" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="imei" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="sms_code" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="is_verified" Type="Boolean" />
+          <Property Name="code_create_date_time" Type="DateTime" Precision="6" />
+          <Property Name="code_verified_date_time" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityContainer Name="clean_green_punjabEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="android_user_sms_verification" EntityType="Self.android_user_sms_verification" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="clean_green_punjabModelStoreContainer" CdmEntityContainer="clean_green_punjabEntities">
+          <EntitySetMapping Name="android_user_sms_verification">
+            <EntityTypeMapping TypeName="clean_green_punjabModel.android_user_sms_verification">
+              <MappingFragment StoreEntitySet="android_user_sms_verification">
+                <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="sms_code" ColumnName="sms_code" />
+                <ScalarProperty Name="is_verified" ColumnName="is_verified" />
+                <ScalarProperty Name="code_create_date_time" ColumnName="code_create_date_time" />
+                <ScalarProperty Name="code_verified_date_time" ColumnName="code_verified_date_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

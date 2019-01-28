@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e8b9cf8e3654c4da16f08ba171351da" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="UC_SchemesModel.tbl_Progress_Scheme_GIS" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UC_SchemesModel.tbl_progress_raw_monitoring" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UC_SchemesModel.Pm_Tbl_Main_Scheme" Width="1.5" PointX="5.375" PointY="6.375" />
+        <AssociationConnector Association="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme" />
+        <AssociationConnector Association="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_Pm_Tbl_Main_Scheme1" />
+        <AssociationConnector Association="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_Pm_Tbl_Main_Scheme" />
+        <EntityTypeShape EntityType="UC_SchemesModel.tbl_UC_MC_Detail" Width="1.5" PointX="0.75" PointY="8.25" />
+        <AssociationConnector Association="UC_SchemesModel.FK_Pm_Tbl_Main_Scheme_tbl_UC_MC_Detail" />
+        <AssociationConnector Association="UC_SchemesModel.FK_tbl_Progress_Scheme_GIS_tbl_UC_MC_Detail" />
+        <EntityTypeShape EntityType="UC_SchemesModel.tbl_SendSMS" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UC_SchemesModel.tbl_progress_raw" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="UC_SchemesModel.tbl_raw_tpv" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="UC_SchemesModel.tpv_progress" Width="1.5" PointX="9.625" PointY="2.625" />
+        <AssociationConnector Association="UC_SchemesModel.FK_tpv_progress_Pm_Tbl_Main_Scheme" />
+        <AssociationConnector Association="UC_SchemesModel.FK_tpv_progress_tbl_UC_MC_Detail" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

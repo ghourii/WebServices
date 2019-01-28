@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebServices.Models.CM_Schemes.DistrictAllocationModel>
+
+@{
+    ViewBag.Title = "GetDistrictAllocation";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-hover table-responsive">
+                <tr>
+                    <th>
+                        District Name
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Allocation)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DistrictName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Allocation)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</div>

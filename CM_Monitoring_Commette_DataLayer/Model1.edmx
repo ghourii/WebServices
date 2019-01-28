@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CM_Monitorring_CommitteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Progress_Commette_Gis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tehsilId" Type="int" />
+          <Property Name="auto_pk" Type="int" />
+          <Property Name="quality_of_work" Type="int" />
+          <Property Name="DivisonId" Type="int" />
+          <Property Name="lng" Type="nvarchar(max)" />
+          <Property Name="remarks" Type="nvarchar(max)" />
+          <Property Name="ucId" Type="int" />
+          <Property Name="serial_no_ADP" Type="int" />
+          <Property Name="col_a" Type="nvarchar(max)" />
+          <Property Name="col_b" Type="nvarchar(max)" />
+          <Property Name="data_captured_from_app_version" Type="nvarchar(max)" />
+          <Property Name="username" Type="nvarchar(max)" />
+          <Property Name="districtId" Type="int" />
+          <Property Name="col_e" Type="nvarchar(max)" />
+          <Property Name="col_c" Type="nvarchar(max)" />
+          <Property Name="col_d" Type="nvarchar(max)" />
+          <Property Name="CommitteId" Type="int" />
+          <Property Name="userId" Type="nvarchar" MaxLength="128" />
+          <Property Name="lat" Type="nvarchar(max)" />
+          <Property Name="ProjectName" Type="nvarchar(max)" />
+          <Property Name="imei" Type="nvarchar(max)" />
+          <Property Name="unique_code" Type="nvarchar(max)" />
+          <Property Name="uc_name" Type="nvarchar(max)" />
+          <Property Name="date_time_mobile" Type="datetime" />
+          <Property Name="district_name" Type="nvarchar(max)" />
+          <Property Name="uc_available_status" Type="int" />
+          <Property Name="tehsil_name" Type="nvarchar(max)" />
+          <Property Name="tbl_progress_raw_id" Type="int" />
+          <Property Name="db_date_time" Type="datetime" />
+          <Property Name="local_id" Type="int" />
+          <Property Name="img1" Type="nvarchar(max)" />
+          <Property Name="img2" Type="nvarchar(max)" />
+          <Property Name="img3" Type="nvarchar(max)" />
+          <Property Name="img4" Type="nvarchar(max)" />
+          <Property Name="geom" Type="geometry" />
+          <Property Name="user_role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_progress_Commette_raw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_json" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="db_date_time" Type="datetime" />
+          <Property Name="app_version" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="imei" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="local_id" Type="int" Nullable="false" />
+          <Property Name="unique_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="img1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="img2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="img3" Type="nvarchar(max)" />
+          <Property Name="img4" Type="nvarchar(max)" />
+          <Property Name="geom" Type="geometry" Nullable="false" />
+          <Property Name="user_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Added" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="CM_Monitorring_CommitteModelStoreContainer">
+          <EntitySet Name="tbl_Progress_Commette_Gis" EntityType="Self.tbl_Progress_Commette_Gis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_progress_Commette_raw" EntityType="Self.tbl_progress_Commette_raw" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CM_Monitorring_CommitteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CM_Monitorring_CommitteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Progress_Commette_Gis" EntityType="CM_Monitorring_CommitteModel.tbl_Progress_Commette_Gis" />
+          <EntitySet Name="tbl_progress_Commette_raw" EntityType="CM_Monitorring_CommitteModel.tbl_progress_Commette_raw" />
+        </EntityContainer>
+        <EntityType Name="tbl_Progress_Commette_Gis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tehsilId" Type="Int32" />
+          <Property Name="auto_pk" Type="Int32" />
+          <Property Name="quality_of_work" Type="Int32" />
+          <Property Name="DivisonId" Type="Int32" />
+          <Property Name="lng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ucId" Type="Int32" />
+          <Property Name="serial_no_ADP" Type="Int32" />
+          <Property Name="col_a" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_b" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="data_captured_from_app_version" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="districtId" Type="Int32" />
+          <Property Name="col_e" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_c" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="col_d" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommitteId" Type="Int32" />
+          <Property Name="userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imei" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="unique_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uc_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_time_mobile" Type="DateTime" Precision="3" />
+          <Property Name="district_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uc_available_status" Type="Int32" />
+          <Property Name="tehsil_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tbl_progress_raw_id" Type="Int32" />
+          <Property Name="db_date_time" Type="DateTime" Precision="3" />
+          <Property Name="local_id" Type="Int32" />
+          <Property Name="img1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom" Type="Geometry" />
+          <Property Name="user_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_progress_Commette_raw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_json" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="db_date_time" Type="DateTime" Precision="3" />
+          <Property Name="app_version" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imei" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="local_id" Type="Int32" Nullable="false" />
+          <Property Name="unique_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="img1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="geom" Type="Geometry" Nullable="false" />
+          <Property Name="user_role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Added" Type="Boolean" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CM_Monitorring_CommitteModelStoreContainer" CdmEntityContainer="CM_Monitorring_CommitteEntities">
+          <EntitySetMapping Name="tbl_Progress_Commette_Gis">
+            <EntityTypeMapping TypeName="CM_Monitorring_CommitteModel.tbl_Progress_Commette_Gis">
+              <MappingFragment StoreEntitySet="tbl_Progress_Commette_Gis">
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="geom" ColumnName="geom" />
+                <ScalarProperty Name="img4" ColumnName="img4" />
+                <ScalarProperty Name="img3" ColumnName="img3" />
+                <ScalarProperty Name="img2" ColumnName="img2" />
+                <ScalarProperty Name="img1" ColumnName="img1" />
+                <ScalarProperty Name="local_id" ColumnName="local_id" />
+                <ScalarProperty Name="db_date_time" ColumnName="db_date_time" />
+                <ScalarProperty Name="tbl_progress_raw_id" ColumnName="tbl_progress_raw_id" />
+                <ScalarProperty Name="tehsil_name" ColumnName="tehsil_name" />
+                <ScalarProperty Name="uc_available_status" ColumnName="uc_available_status" />
+                <ScalarProperty Name="district_name" ColumnName="district_name" />
+                <ScalarProperty Name="date_time_mobile" ColumnName="date_time_mobile" />
+                <ScalarProperty Name="uc_name" ColumnName="uc_name" />
+                <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="CommitteId" ColumnName="CommitteId" />
+                <ScalarProperty Name="col_d" ColumnName="col_d" />
+                <ScalarProperty Name="col_c" ColumnName="col_c" />
+                <ScalarProperty Name="col_e" ColumnName="col_e" />
+                <ScalarProperty Name="districtId" ColumnName="districtId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="data_captured_from_app_version" ColumnName="data_captured_from_app_version" />
+                <ScalarProperty Name="col_b" ColumnName="col_b" />
+                <ScalarProperty Name="col_a" ColumnName="col_a" />
+                <ScalarProperty Name="serial_no_ADP" ColumnName="serial_no_ADP" />
+                <ScalarProperty Name="ucId" ColumnName="ucId" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="DivisonId" ColumnName="DivisonId" />
+                <ScalarProperty Name="quality_of_work" ColumnName="quality_of_work" />
+                <ScalarProperty Name="auto_pk" ColumnName="auto_pk" />
+                <ScalarProperty Name="tehsilId" ColumnName="tehsilId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_progress_Commette_raw">
+            <EntityTypeMapping TypeName="CM_Monitorring_CommitteModel.tbl_progress_Commette_raw">
+              <MappingFragment StoreEntitySet="tbl_progress_Commette_raw">
+                <ScalarProperty Name="Added" ColumnName="Added" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="geom" ColumnName="geom" />
+                <ScalarProperty Name="img4" ColumnName="img4" />
+                <ScalarProperty Name="img3" ColumnName="img3" />
+                <ScalarProperty Name="img2" ColumnName="img2" />
+                <ScalarProperty Name="img1" ColumnName="img1" />
+                <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+                <ScalarProperty Name="local_id" ColumnName="local_id" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="app_version" ColumnName="app_version" />
+                <ScalarProperty Name="db_date_time" ColumnName="db_date_time" />
+                <ScalarProperty Name="data_json" ColumnName="data_json" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
